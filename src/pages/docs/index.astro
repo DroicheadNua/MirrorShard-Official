@@ -1,17 +1,66 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-const posts = await Astro.glob('./*.md'); // docsフォルダ内のmdを全取得
+
+// docsフォルダ内のすべての .md ファイルを取得
+// (Astro.glob はビルド時にファイルを走査してリスト化してくれます)
+const docs = await Astro.glob('./*.md');
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
-<Layout title="Documents">
-    <div class="container">
-        <h1>Documents & Logs</h1>
-        <ul>
-            {posts.map(post => (
-                <li>
-                    <a href={post.url}>{post.frontmatter.title}</a>
-                    <span style="color:#666"> ({post.frontmatter.date})</span>
-                </li>
-            ))}
-        </ul>
+
+<Layout title="Documents - MirrorShard 2">
+    <div class="container" style="padding-top: 50px;">
+        <h1>Documents</h1>
+        <p>MirrorShard 2 のマニュアル・開発ログ一覧</p>
+        
+        <div class="doc-list">
+            <ul>
+                {docs.map(doc => (
+                    <li>
+                        <!-- doc.url は自動生成されたリンク先 (/docs/filename) -->
+                        <a href={doc.url} class="doc-link">
+                            <h3>{doc.frontmatter.title || 'No Title'}</h3>
+                            <p>{doc.frontmatter.description || ''}</p>
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </div>
     </div>
 </Layout>
+
+<style>
+    .doc-list ul {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+    }
+    
+    .doc-link {
+        display: block;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid #333;
+        border-radius: 8px;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.2s;
+    }
+    
+    .doc-link:hover {
+        border-color: var(--accent-color);
+        background: rgba(0, 255, 65, 0.1);
+        transform: translateY(-2px);
+    }
+
+    .doc-link h3 {
+        margin: 0 0 10px 0;
+        color: var(--accent-color);
+    }
+    .doc-link p {
+        margin: 0;
+        font-size: 0.9em;
+        color: #aaa;
+    }
+</style>
