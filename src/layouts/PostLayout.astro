@@ -1,0 +1,37 @@
+---
+// 1. 共通レイアウトを読み込む
+import Layout from './Layout.astro';
+
+// 2. Markdownファイルのヘッダー情報(frontmatter)を受け取る
+const { frontmatter } = Astro.props;
+---
+
+<!-- 3. Layoutで包む -->
+<Layout title={frontmatter.title}>
+    <main class="container">
+        <!-- 記事ヘッダー -->
+        <article class="blog-post">
+            <h1>{frontmatter.title}</h1>
+            <p style="color:#aaa; font-size:0.9em;">{frontmatter.date}</p>
+            <hr style="border-color: var(--accent-color); opacity: 0.5;">
+            
+            <!-- ★ここにMarkdownの中身が入る -->
+            <div class="content">
+                <slot />
+            </div>
+        </article>
+
+        <!-- 戻るボタン -->
+        <div style="margin-top: 50px;">
+            <a href={`${import.meta.env.BASE_URL}/docs/`} class="btn secondary">Back to Docs</a>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    /* 記事本文用のスタイル (h2やpの余白など) をここに書く */
+    .content {
+        line-height: 1.8;
+    }
+    /* ... */
+</style>

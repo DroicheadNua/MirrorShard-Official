@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const posts = await Astro.glob('./*.md'); // docsフォルダ内のmdを全取得
+---
+<Layout title="Documents">
+    <div class="container">
+        <h1>Documents & Logs</h1>
+        <ul>
+            {posts.map(post => (
+                <li>
+                    <a href={post.url}>{post.frontmatter.title}</a>
+                    <span style="color:#666"> ({post.frontmatter.date})</span>
+                </li>
+            ))}
+        </ul>
+    </div>
+</Layout>

@@ -1,218 +1,284 @@
 ---
-// ここはサーバーサイドJS実行領域（ビルド時のみ走る）
-const pageTitle = "MirrorShard 2 - Cyberpunk Vertical Editor";
+import Layout from '../layouts/Layout.astro';
+
+// ベースURLの取得（末尾のスラッシュ調整）
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{pageTitle}</title>
-    <meta name="description" content="Tauri製、没入型縦書きエディタ。AIチャット搭載。">
-</head>
-<body>
+<Layout title="MirrorShard 2 - Immersive Writing Editor">
 
+    <!-- ヘッダー -->
     <header>
-        <div class="container">
+        <div class="container nav-wrapper">
+            <a href={baseUrl} class="logo" style="font-family: Ariel;font-weight: lighter">MirrorShard 2 Official Site</a>
             <nav>
-                <a href="#" class="logo">MirrorShard_2</a>
-                <div>
-                    <!-- リンクテスト -->
-                    <a href="#" style="color: #aaa; text-decoration: none; margin-left: 20px;">Features</a>
-                    <a href="#" style="color: #aaa; text-decoration: none; margin-left: 20px;">Download</a>
+                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/About"}>About</a>
+                <div id=headerfeature>
+                    <button id="feature_pulldown">Features</button>
+                    <div id="feature_menu" class="hidden">
+                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Vertical"} class="feature_item">没入感と縦書き</a>
+                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/AI"} class="feature_item">多彩なAI機能</a>
+                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Customize"} class="feature_item">自由な画面デザイン</a>
+                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Markdown"} class="feature_item">マークダウン・HTML編集</a>
+                    </div>
                 </div>
+                <a href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest">Download</a>
+                <a href="https://github.com/DroicheadNua/MirrorShard_2/tree/main/docs">Docs</a>
             </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>WRITE IN THE FLOW</h1>
-            <p>没入型縦書きエディタの到達点。AIと共に、物語を紡ごう。</p>
-            
-            <!-- ここでローカル画像のテスト -->
-            <div class="hero-image-container">
-                <!-- imgフォルダ内の hero.jpg を読み込む想定 -->
-                <img src={`${import.meta.env.BASE_URL}/img/hero.jpg`} alt="Hero">
-                <div class="hero-placeholder"></div>
-            </div>
+    <main>
+        <!-- ヒーローセクション -->
+        <section class="hero">
+            <div class="container">
+                <h1>MirrorShard 2</h1>
+                <p>統合型ライティングエディタの進化形。<br>AIと共に、物語を紡ごう。</p>
 
-            <br><br>
-            <a href="#" class="btn">DOWNLOAD v1.0.0</a>
-        </div>
-    </section>
+                <div class="hero-image">
+                    <img src={`${baseUrl}/img/ScreenShot01.jpg`} alt="MirrorShard 2 Screenshot" />
+                </div>
 
-    <section class="container">
-        <div class="features">
-            <div class="card">
-                <h3>Vertical Writing</h3>
-                <p>青空文庫形式のルビに対応した縦書きプレビュー画面を実装。</p>
+                <div class="cta-buttons">
+                    <a href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest" class="btn primary">DOWNLOAD v1.2.0</a>
+                    <a href="https://github.com/DroicheadNua/MirrorShard_2" class="btn secondary">GITHUB</a>
+                </div>
             </div>
-            <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/AI"} class="card">
-                <h3>AI Assistant</h3>
-                <p>Gemini, LM Studio, Ollamaに対応。執筆に行き詰まったら、サイドバーのAIに相談しましょう。</p>
-            </a>
-            <div class="card">
-                <h3>Lightweight</h3>
-                <p>ElectronからTauriへ。劇的な軽量化と高速起動を実現。メモリ消費を気にせず創作に没頭できます。</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
+        <!-- 機能紹介（カード） -->
+        <section class="container" id="featurescontainer">
+            <p style="font-size: 1.8em;text-align: center;font-weight: bolder;font-style: oblique;font-family: serif;">Features</p>
+            <div class="features">
+                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Vertical"} class="card">
+                    <h3>Immersive Writing</h3>
+                    <p>ミニマルなUIとBGM・タイプ音で、没入感の高い執筆体験を実現。</P>
+                    <p>ルビ対応の縦書きプレビューも搭載、日本語での執筆活動を強力に支援します。</p>
+                    <img src={`${baseUrl}/img/ScreenShot01.jpg`} alt="sc01" />
+                </a>
+                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/AI"} class="card">
+                    <h3>AI Assistant</h3>
+                    <p>AIチャットウィンドウに加え、メインエディタにもAI機能を搭載。</p>
+                    <p>文章の続きを書かせたり、選択範囲をリライトさせたりと、多彩なサポートで執筆を支えます。</p>
+                    <img src={`${baseUrl}/img/ScreenShot03.jpg`} alt="sc03" />
+                </a>
+            </div>
+            <div class="features">
+                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Customize"} class="card">
+                    <h3>Highly Customizable</h3>
+                    <p>画面の配色や背景画像を自由にカスタマイズ可能。</p>
+                    <img src={`${baseUrl}/img/ScreenShot02.jpg`} alt="sc02" />
+                </a>
+                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Markdown"} class="card">
+                    <h3>Markdown/HTML Edit</h3>
+                    <p>マークダウン/HTMLプレビューウィンドウを搭載、マークダウン・HTMLエディタとしても運用可能。</p>
+                    <p>このサイトもMirrorShard 2で作成されています。</p>
+                    <img src={`${baseUrl}/img/ScreenShot04.jpg`} alt="sc03" />
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- フッター -->
     <footer>
         <div class="container">
             <p>&copy; 2025-2026 DroicheadNua. Released under the MIT License.</p>
         </div>
     </footer>
+</Layout>
 
-</body>
-</html>
-    <style>
-        :root {
-            --bg-color: #0a0a0a;
-            --text-color: #e0e0e0;
-            --accent-color: #00ff41;
-            --secondary-color: #008f11;
-            --card-bg: #1a1a1a;
-        }
+<style>
+    /* ページ固有のスタイル */
+    header {
+        background: rgba(0,0,0,0.8);
+        border-bottom: 1px solid var(--accent-color);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(10px);
+    }
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Helvetica Neue", Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
+    .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    }
 
-        header {
-            background: rgba(0, 0, 0, 0.8);
-            border-bottom: 1px solid var(--accent-color);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            backdrop-filter: blur(5px);
-            z-index: 100;
-        }
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-shadow: 0 0 5px var(--secondary-color);
+    }
 
-        .container {
-            width: 90%;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    nav{
+        display: flex;
+        gap:20px;
+    }
+    nav a, nav button {
+        margin-left: 0px;
+        color: #aaa;
+        border: none;
+        background-color: transparent;
+    }
+    nav a:hover, nav button:hover {
+        color: var(--accent-color);
+    }
+    nav button{
+        z-index: 800;
+    }
+    html, body{
+        background: #050505;
+    }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .hero {
+        text-align: center;
+        padding-bottom: 40px;
+        border-bottom: 1px solid #55555555; 
+    }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            text-decoration: none;
-            text-shadow: 0 0 5px var(--secondary-color);
-        }
+    .hero h1 {
+        font-size: 4.5rem;
+        margin-bottom: 1rem;
+        letter-spacing: 2px;
+        text-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+    }
 
-        .hero {
-            text-align: center;
-            padding: 80px 0;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
-        }
+    .hero-image img {
+        width: 100%;
+        max-width: 900px;
+        border: 1px solid #333;
+        border-radius: 8px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        margin: 40px 0;
+    }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
+    .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        border-radius: 4px;
+        font-weight: bold;
+        margin: 0 10px;
+    }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: #aaa;
-            margin-bottom: 40px;
-        }
+    .btn.primary {
+        background: transparent;
+        border: 1px solid var(--accent-color);
+        color: var(--accent-color);
+        box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+    }
 
-        /* 画像テスト用エリア */
-        .hero-image-container {
-            width: 100%;
-            max-width: 800px;
-            height: 480px;
-            margin: 0 auto;
-            background-color: #333;
-            border: 1px solid var(--secondary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-        }
+    .btn.primary:hover {
+        background: var(--accent-color);
+        color: #000;
+        box-shadow: 0 0 20px var(--accent-color);
+    }
 
-        .hero-image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+    .btn.secondary {
+        border: 1px solid #555;
+        color: #aaa;
+    }
+    .btn.secondary:hover {
+        border-color: #fff;
+        color: #fff;
+    }
+    .card {
+        text-decoration: none; /* アンダーラインを消す */
+        color: inherit;       /* 親（body等）の文字色を継承する */
+        display: block;       /* カード全体をクリッカブルにするため */
+        background: var(--card-bg);
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #333;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 255, 65, 0.1);
+        border-color: var(--secondary-color);
+    }
+    .card h3 {
+        color: var(--accent-color);
+        font-family: ariel;
+        margin-top: 0;
+    }
+    .card img {
+        width: 100%;
+        max-width: 640px;
+        border: 1px solid #333;
+        border-radius: 8px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        margin: 0;
+    }
+    .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        padding-bottom: 30px;
+    }
 
-        .hero-placeholder {
-            position: absolute;
-            color: var(--accent-color);
-            font-family: monospace;
-        }
+    #feature_menu {
+        position: absolute;
+        top: 100%; /* ボタンの真下に表示 */
+        display: flex;
+        flex-direction: column;
+        background-color: #020202; 
+        border: 1px solid rgba(0, 255, 65, 0.5);
+        border-top: 1px solid rgb(0, 255, 65);
+        border-radius: 4px;
+        min-width: 180px;
+        z-index: 100;
+        padding: 0;
+        margin: 0;
+        gap:0;
+    }
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            padding: 60px 0;
-        }
+    #feature_menu.hidden {
+        display: none;
+    }
 
-        .card {
-                text-decoration: none; /* アンダーラインを消す */
-    color: inherit;       /* 親（body等）の文字色を継承する */
-    display: block;       /* カード全体をクリッカブルにするため */
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #333;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
+    #headerfeature {
+        display: flex;
+        justify-content: center;
+    }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.1);
-            border-color: var(--secondary-color);
-        }
+    .feature_item {
+        padding: 8px 0px;
+        text-align: center;
+        margin: 0;
+        gap:0;
+        color: #ccc;
+        cursor: pointer;
+        font-size: 14px;
+        font-family: monospace;
+        border: 1px solid rgba(0, 255, 65, 0.5);
+    }
 
-        .card h3 {
-            color: var(--accent-color);
-            margin-top: 0;
-        }
+    .feature_item:hover {
+        text-shadow: 0 5px 15px rgba(0, 255, 65, 0.5);
+    }
 
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid #333;
-            font-size: 0.9rem;
-            color: #666;
-        }
+    footer {
+        padding: 40px 0;
+        text-align: center;
+        border-top: 1px solid #333;
+        font-size: 0.9rem;
+        color: #666;
+    }
+</style>
+<script>
+    const featurepulldown = document.querySelector('header #feature_pulldown')!;
+    const featuremenu = document.querySelector('header #feature_menu')!;
+    featurepulldown.addEventListener('click', (e) => {
+        e.stopPropagation();
+        featuremenu.classList.toggle('hidden');
+    });
 
-        .btn {
-            display: inline-block;
-            padding: 10px 25px;
-            background: transparent;
-            color: var(--accent-color);
-            border: 1px solid var(--accent-color);
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 4px;
-            transition: all 0.3s;
+    // ウィンドウのどこかをクリックしたら、メニューを閉じる (UX向上のため)
+    window.addEventListener('click', () => {
+        if (!featuremenu.classList.contains('hidden')) {
+            featuremenu.classList.add('hidden');
         }
-
-        .btn:hover {
-            background: var(--accent-color);
-            color: #000;
-            box-shadow: 0 0 10px var(--accent-color);
-        }
-    </style>
+    });
+</script>
