@@ -1,48 +1,54 @@
 ---
 interface Props {
-	title: string;
+title: string;
 }
-
+import { ClientRouter } from 'astro:transitions';
 const { title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="ja">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+
+        <ClientRouter />
+    </head>
+    <body>
+        <slot />
+    </body>
 </html>
 
 <style is:global>
-	/* グローバルCSS変数 (MirrorShardの配色をWebに移植) */
-	:root {
-		--bg-color: #0a0a0a;
-		--text-color: #e0e0e0;
-		--accent-color: #00ff41;
-		--secondary-color: #008f11;
+    /* グローバルCSS変数 (MirrorShardの配色をWebに移植) */
+    :root {
+        --bg-color: #0a0a0a;
+        --text-color: #e0e0e0;
+        --accent-color: #00ff41;
+        --secondary-color: #008f11;
         --ui-border: #333;
-		--card-bg: #1a1a1a;
-	}
-	
-	html {
-		font-family: system-ui, sans-serif;
-		background: var(--bg-color);
-		color: var(--text-color);
+        --card-bg: #1a1a1a;
+    }
+
+    html {
+        font-family: system-ui, sans-serif;
+        background: var(--bg-color);
+        color: var(--text-color);
         scroll-behavior: smooth;
-	}
-	
-	body {
-		margin: 0;
-		padding: 0;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
         line-height: 1.6;
-	}
+    }
 
     /* 共通のユーティリティクラス */
     .container {
@@ -59,5 +65,171 @@ const { title } = Astro.props;
     }
     a:hover {
         opacity: 0.8;
+    }
+
+    p {
+        text-align: start;
+        font-family: "M PLUS 1p";
+    }
+
+    header {
+        background: rgba(0,0,0,0.8);
+        border-bottom: 1px solid var(--accent-color);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(10px);
+    }
+    nav{
+        display: flex;
+        gap:20px;
+    }
+    nav a, nav button {
+        margin-left: 0px;
+        color: #aaa;
+        border: none;
+        background-color: transparent;
+        font-family: 'Orbitron';
+    }
+    nav a:hover, nav button:hover {
+        color: var(--accent-color);
+    }
+    nav button{
+        z-index: 800;
+        font-size:1.1em;
+        cursor: pointer;
+    }
+    .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-shadow: 0 0 5px var(--secondary-color);
+    }
+    .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        padding-bottom: 30px;
+    }
+
+    #feature_menu {
+        position: absolute;
+        top: 100%; /* ボタンの真下に表示 */
+        display: flex;
+        flex-direction: column;
+        background-color: #020202; 
+        border: 1px solid rgba(0, 255, 65, 0.5);
+        border-top: 1px solid rgb(0, 255, 65);
+        border-radius: 4px;
+        min-width: 180px;
+        z-index: 100;
+        padding: 0;
+        margin: 0;
+        gap:0;        
+    }
+
+    #feature_menu a{
+        font-family: "M PLUS 1p";
+        border-bottom: 1px solid #55555599;
+    }
+    #feature_menu a:hover{
+        background: #44444455;
+    }
+
+    #feature_menu.hidden {
+        display: none;
+    }
+
+    #headerfeature {
+        display: flex;
+        justify-content: center;
+    }
+
+    .feature_item {
+        padding: 8px 0px;
+        text-align: center;
+        margin: 0;
+        gap:0;
+        color: #ccc;
+        cursor: pointer;
+        font-size: 14px;
+        font-family: monospace;
+        border: 1px solid rgba(0, 255, 65, 0.5);
+    }
+
+    .feature_item:hover {
+        text-shadow: 0 5px 15px rgba(0, 255, 65, 0.5);
+    }
+
+    .card {
+        flex-shrink: 0;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        background: #00550044;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #050;
+        box-shadow: 0 0 30px rgba(0, 200, 0, 0.5);
+        max-width: 100%;
+    }
+    .card h3 {
+        color: var(--accent-color);
+        font-family: 'Orbitron';
+        margin-top: 0;
+        text-align: center;
+    }
+    .card img {
+        width: 100%;
+        max-width: 480px;
+        border: 1px solid #444;
+        border-radius: 8px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        margin: 0;
+    }
+
+    .piller-wrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 40px;
+        margin:40px;
+    }
+
+    .left-piller, .right-piller{
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 60px;
+    }
+    .right-piller {
+        padding-top:80px;
+    }
+
+    /* --- スマホ・タブレット用（画面幅が768px以下の時）のスタイル --- */
+    @media (max-width: 768px) {
+        .piller-wrapper {
+            flex-direction: column; /* 縦並びに変更 */
+            align-items: center;    /* 中央揃え */
+            gap: 40px;              /* カード間の隙間 */
+        }
+
+        .right-piller {
+            padding-top: 0;         /* 縦並びの時は段差をなくす */
+        }
+
+        .card img {
+            max-width: 100%;        /* 画面幅に合わせる */
+        }
+
+        h1 {
+            font-size: 2.5rem;      /* スマホ用に少し文字を小さく */
+        }
     }
 </style>

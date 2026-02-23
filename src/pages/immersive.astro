@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<Layout title="Immersive Writing">
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href={baseUrl} class="logo" style="font-family: 'Orbitron';">[ Back to Home ]</Back></a>
+            <nav>
+                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/About"}>About</a>
+                <div id=headerfeature>
+                    <button id="feature_pulldown">Features</button>
+                    <div id="feature_menu" class="hidden">
+                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/immersive"} class="feature_item">没入感と縦書き</a>
+                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/AI"} class="feature_item">多彩なAI機能</a>
+                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Customize"} class="feature_item">自由な画面デザイン</a>
+                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Markdown"} class="feature_item">マークダウン・HTML編集</a>
+                    </div>
+                </div>
+                <a href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest">Download</a>
+                <a href={`${baseUrl}/docs/`}>Docs</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <h1>Immersive Writing</h1>
+        <div class="piller-wrapper">
+            <div class="left-piller">
+                <div class="card">
+                    <h3>Minimal Design</h3>
+                    <p>ミニマルなデザインのフレームレスウィンドウを採用。</p>
+                    <p>上部のボタンから各機能にアクセス、ステータスバーには各種情報を表示。</p>
+                    <img src={`${baseUrl}/img/immersive01.jpg`} alt="im01" />
+                </div>
+                <div class="card">
+                    <h3>Zen Mode</h3>
+                    <p>ボタン１つでUIを非表示にする「ZEN」モードを搭載。</p>
+                    <p>内蔵のBGMやタイプ音、フルスクリーン機能と合わせれば、そこはあなただけの没入空間。</p>
+                    <img src={`${baseUrl}/img/immersive03.jpg`} alt="im03" />
+                </div>
+            </div>
+            <div class="right-piller">
+                <div class="card">
+                    <h3>Vertical Writing</h3>
+                    <p>羊皮紙風の背景で、縦書きプレビューを閲覧可能。</p>
+                    <p>青空文庫形式のルビにも対応。</p>
+                    <img src={`${baseUrl}/img/immersive02.jpg`} alt="im02" />
+                </div>
+                <div class="card">
+                    <h3>Outline Processor</h3>
+                    <p>エディタエンジンにCodemirror 6を採用、10万行を超える巨大テキストでも軽快に動作。</p>
+                    <p>強力なアウトライン機能も備え、長編作品の管理に最適です。</p>
+                    <img src={`${baseUrl}/img/immersive04.jpg`} alt="im02" />
+                </div>
+                <div class="card">
+                    <h3>Dark Mode & Spotlight Mode</h3>
+                    <p>ショートカット一発でダークモードに切り替え可能。</p>
+                    <p>また、編集中の見出し以外を隠すスポットライトモードで、目前のタスクに集中できます。</p>
+                    <img src={`${baseUrl}/img/immersive05.jpg`} alt="im02" />
+                </div>
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    main{
+        background: #050505;
+        color: #eee;
+    }
+
+    h1 {
+        font-family: 'Orbitron';
+        text-align: center;
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        letter-spacing: 2px;
+        text-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+        -webkit-text-stroke: 2px green;
+    }
+</style>
+
+<script>
+    const featurepulldown = document.querySelector('header #feature_pulldown')!;
+    const featuremenu = document.querySelector('header #feature_menu')!;
+    featurepulldown.addEventListener('click', (e) => {
+        e.stopPropagation();
+        featuremenu.classList.toggle('hidden');
+    });
+
+    window.addEventListener('click', () => {
+        if (!featuremenu.classList.contains('hidden')) {
+            featuremenu.classList.add('hidden');
+        }
+    });
+</script>

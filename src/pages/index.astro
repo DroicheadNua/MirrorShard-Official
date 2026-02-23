@@ -10,13 +10,13 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
     <!-- ヘッダー -->
     <header>
         <div class="container nav-wrapper">
-            <a href={baseUrl} class="logo" style="font-family: Ariel;font-weight: lighter">MirrorShard 2 Official Site</a>
+            <a href={baseUrl} class="logo" style="font-family: 'Orbitron';">MirrorShard 2 Official Site</a>
             <nav>
                 <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/About"}>About</a>
                 <div id=headerfeature>
                     <button id="feature_pulldown">Features</button>
                     <div id="feature_menu" class="hidden">
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Vertical"} class="feature_item">没入感と縦書き</a>
+                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/immersive"} class="feature_item">没入感と縦書き</a>
                         <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/AI"} class="feature_item">多彩なAI機能</a>
                         <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Customize"} class="feature_item">自由な画面デザイン</a>
                         <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Markdown"} class="feature_item">マークダウン・HTML編集</a>
@@ -33,7 +33,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
         <section class="hero">
             <div class="container">
                 <h1>MirrorShard 2</h1>
-                <p>統合型ライティングエディタの進化形。<br>AIと共に、物語を紡ごう。</p>
+                <p style="text-align: center">統合型ライティングエディタの進化形。<br>AIと共に、物語を紡ごう。</p>
 
                 <div class="hero-image">
                     <img src={`${baseUrl}/img/ScreenShot01.jpg`} alt="MirrorShard 2 Screenshot" />
@@ -48,15 +48,15 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 
         <!-- 機能紹介（カード） -->
         <section class="container" id="featurescontainer">
-            <p style="font-size: 1.8em;text-align: center;font-weight: bolder;font-style: oblique;font-family: serif;">Features</p>
+            <p style="font-size: 1.8em;text-align: center;font-weight: bolder;font-family: Orbitron;-webkit-text-stroke: 1px green;">Features</p>
             <div class="features">
-                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Vertical"} class="card">
+                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/immersive"} class="main-card">
                     <h3>Immersive Writing</h3>
                     <p>ミニマルなUIとBGM・タイプ音で、没入感の高い執筆体験を実現。</P>
                     <p>ルビ対応の縦書きプレビューも搭載、日本語での執筆活動を強力に支援します。</p>
                     <img src={`${baseUrl}/img/ScreenShot01.jpg`} alt="sc01" />
                 </a>
-                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/AI"} class="card">
+                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/AI"} class="main-card">
                     <h3>AI Assistant</h3>
                     <p>AIチャットウィンドウに加え、メインエディタにもAI機能を搭載。</p>
                     <p>文章の続きを書かせたり、選択範囲をリライトさせたりと、多彩なサポートで執筆を支えます。</p>
@@ -64,12 +64,12 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
                 </a>
             </div>
             <div class="features">
-                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Customize"} class="card">
+                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Customize"} class="main-card">
                     <h3>Highly Customizable</h3>
                     <p>画面の配色や背景画像を自由にカスタマイズ可能。</p>
                     <img src={`${baseUrl}/img/ScreenShot02.jpg`} alt="sc02" />
                 </a>
-                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Markdown"} class="card">
+                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Markdown"} class="main-card">
                     <h3>Markdown/HTML Edit</h3>
                     <p>マークダウン/HTMLプレビューウィンドウを搭載、マークダウン・HTMLエディタとしても運用可能。</p>
                     <p>このサイトもMirrorShard 2で作成されています。</p>
@@ -90,44 +90,6 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <style>
     /* ページ固有のスタイル */
-    header {
-        background: rgba(0,0,0,0.8);
-        border-bottom: 1px solid var(--accent-color);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        backdrop-filter: blur(10px);
-    }
-
-    .nav-wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 0;
-    }
-
-    .logo {
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-shadow: 0 0 5px var(--secondary-color);
-    }
-
-    nav{
-        display: flex;
-        gap:20px;
-    }
-    nav a, nav button {
-        margin-left: 0px;
-        color: #aaa;
-        border: none;
-        background-color: transparent;
-    }
-    nav a:hover, nav button:hover {
-        color: var(--accent-color);
-    }
-    nav button{
-        z-index: 800;
-    }
     html, body{
         background: #050505;
     }
@@ -139,6 +101,8 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
     }
 
     .hero h1 {
+        font-family: 'Orbitron';
+        -webkit-text-stroke: 2px green;
         font-size: 4.5rem;
         margin-bottom: 1rem;
         letter-spacing: 2px;
@@ -160,6 +124,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
         border-radius: 4px;
         font-weight: bold;
         margin: 0 10px;
+        font-family: sans-serif;
     }
 
     .btn.primary {
@@ -183,27 +148,30 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
         border-color: #fff;
         color: #fff;
     }
-    .card {
+    .main-card {
         text-decoration: none; /* アンダーラインを消す */
         color: inherit;       /* 親（body等）の文字色を継承する */
         display: block;       /* カード全体をクリッカブルにするため */
-        background: var(--card-bg);
+        background: #00220044;
         padding: 20px;
         border-radius: 8px;
-        border: 1px solid #333;
+        border: 1px solid #050;
+        box-shadow: 0 0 10px rgba(0, 200, 0, 0.5);
         transition: transform 0.2s, box-shadow 0.2s;
     }
-    .card:hover {
+    .main-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0, 255, 65, 0.1);
+        box-shadow: 0px 0px 30px rgba(0, 255, 65, 0.8);
         border-color: var(--secondary-color);
+        background: #00220044;
     }
-    .card h3 {
+    .main-card h3 {
         color: var(--accent-color);
-        font-family: ariel;
+        font-family: 'Orbitron';
         margin-top: 0;
+        text-align: center;
     }
-    .card img {
+    .main-card img {
         width: 100%;
         max-width: 640px;
         border: 1px solid #333;
@@ -211,53 +179,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
         margin: 0;
     }
-    .features {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-        padding-bottom: 30px;
-    }
 
-    #feature_menu {
-        position: absolute;
-        top: 100%; /* ボタンの真下に表示 */
-        display: flex;
-        flex-direction: column;
-        background-color: #020202; 
-        border: 1px solid rgba(0, 255, 65, 0.5);
-        border-top: 1px solid rgb(0, 255, 65);
-        border-radius: 4px;
-        min-width: 180px;
-        z-index: 100;
-        padding: 0;
-        margin: 0;
-        gap:0;
-    }
-
-    #feature_menu.hidden {
-        display: none;
-    }
-
-    #headerfeature {
-        display: flex;
-        justify-content: center;
-    }
-
-    .feature_item {
-        padding: 8px 0px;
-        text-align: center;
-        margin: 0;
-        gap:0;
-        color: #ccc;
-        cursor: pointer;
-        font-size: 14px;
-        font-family: monospace;
-        border: 1px solid rgba(0, 255, 65, 0.5);
-    }
-
-    .feature_item:hover {
-        text-shadow: 0 5px 15px rgba(0, 255, 65, 0.5);
-    }
 
     footer {
         padding: 40px 0;
