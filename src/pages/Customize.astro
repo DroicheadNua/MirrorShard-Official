@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
-<Layout title="AI Assistant">
+<Layout title="Appearance and Customization">
 
     <header>
         <div class="container nav-wrapper">
@@ -26,26 +26,26 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
     </header>
 
     <main>
-        <h1>AI Assistant</h1>
+        <h1>Appearance and Customization</h1>
         <div class="piller-wrapper">
             <div class="left-piller">
                 <div class="card">
-                    <h3>AI Chat</h3>
-                    <p>APIを利用したGoogle Geminiとの対話と、LM StudioやOllamaを利用したローカルLLMの運用、その双方に対応したAIチャットウィンドウを搭載。用途に応じて多彩な活用が可能です。</p>
-                    <img src={`${baseUrl}/img/ScreenShot03.jpg`} alt="sc03" />
+                    <h3>Appearance Customization</h3>
+                    <p>エディタの配置や配色、背景画像などを自在にカスタマイズ可能。</p>
+                    <p>テキストエリアの透明度を上げれば、背景画像もより一層活かしやすくなります。</p>
+                    <img src={`${baseUrl}/img/ScreenShot02.jpg`} alt="sc02" />
                 </div>
                 <div class="card">
-                    <h3>Code Completion</h3>
-                    <p>コードエディタモードにもAI機能を搭載。Alt+Enterを押すと、AIが必要なコードを推測して生成します。</p>
-                    <img src={`${baseUrl}/img/AI02.jpg`} alt="sc03" />
+                    <h3>Snow Effect</h3>
+                    <p>Ctrl+Shift+Eで、画面に雪を降らせることができます。</p>
+                    <img src={`${baseUrl}/img/custom02.jpg`} alt="c02" />
                 </div>
             </div>
             <div class="right-piller">
                 <div class="card">
-                    <h3>AI-powered Writing</h3>
-                    <p>チャットウィンドウだけでなく、エディタ本体にもAI機能を搭載。</p>
-                    <p>カーソル位置から続きを書かせたり、選択範囲を翻訳／要約／リライトさせたりできます。</p>
-                    <img src={`${baseUrl}/img/AI01.jpg`} alt="AI02" />
+                    <h3>Theme Presets</h3>
+                    <p>お好みの配色を、プリセットとして保存できます。</p>
+                    <img src={`${baseUrl}/img/custom01.jpg`} alt="c01" />
                 </div>
             </div>
         </div>
@@ -67,7 +67,6 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
         text-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
         -webkit-text-stroke: 2px green;
     }
-    
     p {
         color: #eee;
         text-align: start;

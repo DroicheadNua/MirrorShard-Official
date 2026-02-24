@@ -1,12 +1,8 @@
 ---
-// 1. 共通レイアウトを読み込む
 import Layout from './Layout.astro';
-
-// 2. Markdownファイルのヘッダー情報(frontmatter)を受け取る
 const { frontmatter } = Astro.props;
 ---
 
-<!-- 3. Layoutで包む -->
 <Layout title={frontmatter.title}>
     <main class="container">
         <!-- 記事ヘッダー -->
@@ -14,7 +10,7 @@ const { frontmatter } = Astro.props;
             <h1>{frontmatter.title}</h1>
             <p style="color:#aaa; font-size:0.9em;">{frontmatter.date}</p>
             <hr style="border-color: var(--accent-color); opacity: 0.5;">
-            
+
             <!-- ★ここにMarkdownの中身が入る -->
             <div class="content">
                 <slot />
@@ -23,7 +19,7 @@ const { frontmatter } = Astro.props;
 
         <!-- 戻るボタン -->
         <div style="margin-top: 50px;margin-bottom: 50px">
-            <a href={`${import.meta.env.BASE_URL}/docs/`} class="btn secondary">一覧に戻る</a>
+            <a href={`${import.meta.env.BASE_URL}/Blog/`} class="btn secondary">一覧に戻る</a>
         </div>
     </main>
 </Layout>

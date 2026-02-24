@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
-<Layout title="AI Assistant">
+<Layout title="Coding Tools">
 
     <header>
         <div class="container nav-wrapper">
@@ -26,26 +26,26 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
     </header>
 
     <main>
-        <h1>AI Assistant</h1>
+        <h1>Coding Tools</h1>
         <div class="piller-wrapper">
             <div class="left-piller">
                 <div class="card">
-                    <h3>AI Chat</h3>
-                    <p>APIを利用したGoogle Geminiとの対話と、LM StudioやOllamaを利用したローカルLLMの運用、その双方に対応したAIチャットウィンドウを搭載。用途に応じて多彩な活用が可能です。</p>
-                    <img src={`${baseUrl}/img/ScreenShot03.jpg`} alt="sc03" />
+                    <h3>Markdown/HTML Preview</h3>
+                    <p>ボタン一つでマークダウン／HTMLモードが切り替え可能なプレビューウィンドウを実装。マークダウンエディタ・HTMLエディタとしても運用可能に。</p>
+                    <img src={`${baseUrl}/img/md01.jpg`} alt="md01" />
                 </div>
                 <div class="card">
-                    <h3>Code Completion</h3>
-                    <p>コードエディタモードにもAI機能を搭載。Alt+Enterを押すと、AIが必要なコードを推測して生成します。</p>
-                    <img src={`${baseUrl}/img/AI02.jpg`} alt="sc03" />
+                    <h3>Built-in terminal</h3>
+                    <p>Ctrl+@でターミナルを開く機能を搭載。OS標準のターミナルの他、Git Bashなど任意のターミナルを運用可能。</p>
+                    <img src={`${baseUrl}/img/md03.jpg`} alt="md03" />
                 </div>
             </div>
             <div class="right-piller">
                 <div class="card">
-                    <h3>AI-powered Writing</h3>
-                    <p>チャットウィンドウだけでなく、エディタ本体にもAI機能を搭載。</p>
-                    <p>カーソル位置から続きを書かせたり、選択範囲を翻訳／要約／リライトさせたりできます。</p>
-                    <img src={`${baseUrl}/img/AI01.jpg`} alt="AI02" />
+                    <h3>Code Editor Mode</h3>
+                    <p>Ctrl+K一発で、文書執筆用のエディタがコードエディタモードに早変わり。</p>
+                    <p>行番号表示やシンタックスハイライトのほか、簡易フォーマッタやAIによるコード補完機能も実装。</p>
+                    <img src={`${baseUrl}/img/md02.jpg`} alt="md02" />
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
         text-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
         -webkit-text-stroke: 2px green;
     }
-    
+
     p {
         color: #eee;
         text-align: start;

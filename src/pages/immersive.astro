@@ -20,10 +20,11 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
                 </div>
                 <a href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest">Download</a>
                 <a href={`${baseUrl}/docs/`}>Docs</a>
+                <a href={`${baseUrl}/Blog/`}>Blog</a>
             </nav>
         </div>
     </header>
-    
+
     <main>
         <h1>Immersive Writing</h1>
         <div class="piller-wrapper">
@@ -40,25 +41,36 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
                     <p>内蔵のBGMやタイプ音、フルスクリーン機能と合わせれば、そこはあなただけの没入空間。</p>
                     <img src={`${baseUrl}/img/immersive03.jpg`} alt="im03" />
                 </div>
+                <div class="card">
+                    <h3>Export</h3>
+                    <p>プリンタでの印刷の他、EPUB・PDF・HTMLでの出力に対応。</p>
+                    <p>（※縦書きは印刷不可、EPUB・HTMLのみ対応）</p>
+                    <img src={`${baseUrl}/img/immersive06.jpg`} alt="im06" />
+                </div>
             </div>
             <div class="right-piller">
                 <div class="card">
                     <h3>Vertical Writing</h3>
                     <p>羊皮紙風の背景で、縦書きプレビューを閲覧可能。</p>
-                    <p>青空文庫形式のルビにも対応。</p>
+                    <p>青空文庫形式のルビにも対応。縦書き・ルビつきのエクスポート（HTML・EPUB）も可能です。</p>
                     <img src={`${baseUrl}/img/immersive02.jpg`} alt="im02" />
                 </div>
                 <div class="card">
                     <h3>Outline Processor</h3>
                     <p>エディタエンジンにCodemirror 6を採用、10万行を超える巨大テキストでも軽快に動作。</p>
                     <p>強力なアウトライン機能も備え、長編作品の管理に最適です。</p>
-                    <img src={`${baseUrl}/img/immersive04.jpg`} alt="im02" />
+                    <img src={`${baseUrl}/img/immersive04.jpg`} alt="im04" />
                 </div>
                 <div class="card">
                     <h3>Dark Mode & Spotlight Mode</h3>
                     <p>ショートカット一発でダークモードに切り替え可能。</p>
                     <p>また、編集中の見出し以外を隠すスポットライトモードで、目前のタスクに集中できます。</p>
-                    <img src={`${baseUrl}/img/immersive05.jpg`} alt="im02" />
+                    <img src={`${baseUrl}/img/immersive05.jpg`} alt="im05" />
+                </div>
+                <div class="card">
+                    <h3>Shortcut Window</h3>
+                    <p>操作が分からなくなったら、F1キーを押してください。機能と対応ショートカットの一覧が表示されます。</p>
+                    <img src={`${baseUrl}/img/immersive07.jpg`} alt="im07" />
                 </div>
             </div>
         </div>
@@ -79,6 +91,12 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
         letter-spacing: 2px;
         text-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
         -webkit-text-stroke: 2px green;
+    }
+
+    p {
+        color: #eee;
+        text-align: start;
+        font-family: "M PLUS 1p";
     }
 </style>
 

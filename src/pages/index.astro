@@ -24,6 +24,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
                 </div>
                 <a href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest">Download</a>
                 <a href={`${baseUrl}/docs/`}>Docs</a>
+                <a href={`${baseUrl}/Blog/`}>Blog</a>
             </nav>
         </div>
     </header>
@@ -152,7 +153,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
         text-decoration: none; /* アンダーラインを消す */
         color: inherit;       /* 親（body等）の文字色を継承する */
         display: block;       /* カード全体をクリッカブルにするため */
-        background: #00220044;
+        background: #00050044;
         padding: 20px;
         border-radius: 8px;
         border: 1px solid #050;
@@ -179,7 +180,11 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
         margin: 0;
     }
-
+    p {
+        color: #eee;
+        text-align: start;
+        font-family: "M PLUS 1p";
+    }
 
     footer {
         padding: 40px 0;
