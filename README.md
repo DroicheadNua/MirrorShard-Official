@@ -1,43 +1,20 @@
-# Astro Starter Kit: Minimal
+# MirrorShard 2 Official Website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+創作支援用テキストエディタ **[MirrorShard 2](https://github.com/DroicheadNua/MirrorShard_2)** の公式Webサイトおよびドキュメントのソースコードリポジトリです。
+Astroフレームワークを使用して構築されており、MirrorShard自身の「コードエディタモード」を用いて開発されました。
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+🌐 **[公式Webサイトはこちら](https://DroicheadNua.github.io/MirrorShard-Official/)**
 
-## 🚀 Project Structure
+## 関連リンク
+- **[MirrorShard 2 アプリ本体のリポジトリ](https://github.com/DroicheadNua/MirrorShard_2)**
+- [ダウンロード (最新リリース)](https://github.com/DroicheadNua/MirrorShard_2/releases/latest)
 
-Inside of your Astro project, you'll see the following folders and files:
+## 開発環境について
+このサイトをローカルでプレビュー・編集するには、Node.jsおよびpnpmが必要です。
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+```bash
+# インストール
+pnpm install
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+# ローカルサーバーの起動 (localhost:4321)
+pnpm dev
