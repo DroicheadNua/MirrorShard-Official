@@ -5,7 +5,7 @@ const blog = await Astro.glob('./*.md');
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<Layout title="Documents - MirrorShard 2">
+<Layout title="Blog - MirrorShard 2">
 
     <header>
         <div class="container nav-wrapper">
@@ -22,15 +22,15 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
                     </div>
                 </div>
                 <a href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest">Download</a>
-                <a href={`${baseUrl}/docs/`}>Docs</a>
+                <a href="https://github.com/DroicheadNua/MirrorShard_2/tree/main/docs">Docs</a>
                 <a href={`${baseUrl}/Blog/`}>Blog</a>
             </nav>
         </div>
     </header>
     
     <div class="container" style="padding-top: 50px;">
-        <h1>Documents</h1>
-        <p>MirrorShard 2 の開発ログ一覧</p>
+        <h1>Blog</h1>
+        <p>MirrorShard 2 の開発雑記とかブログとかそんな感じの何か</p>
         
         <div class="blog-list">
             <ul>
@@ -60,11 +60,13 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
         display: block;
         padding: 20px;
         background: rgba(255, 255, 255, 0.05);
-        border: 1px solid #333;
+        border: 1px solid #00ff2255;
+        box-shadow: 0 0 20px green;
         border-radius: 8px;
         text-decoration: none;
         color: inherit;
         transition: all 0.2s;
+        font-family: serif;
     }
     
     .blog-link:hover {
@@ -83,3 +85,19 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
         color: #aaa;
     }
 </style>
+
+<script>
+    const featurepulldown = document.querySelector('header #feature_pulldown')!;
+    const featuremenu = document.querySelector('header #feature_menu')!;
+    featurepulldown.addEventListener('click', (e) => {
+        e.stopPropagation();
+        featuremenu.classList.toggle('hidden');
+    });
+
+    // ウィンドウのどこかをクリックしたら、メニューを閉じる (UX向上のため)
+    window.addEventListener('click', () => {
+        if (!featuremenu.classList.contains('hidden')) {
+            featuremenu.classList.add('hidden');
+        }
+    });
+</script>

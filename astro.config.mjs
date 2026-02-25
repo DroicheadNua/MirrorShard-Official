@@ -4,7 +4,7 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
   // 自分のGitHub PagesのURL（ドメイン）
-  site: 'https://droicheadnua.github.io',
+  site: 'https://Droicheadnua.github.io',
   // リポジトリ名（サブパス）
-  base: '/MirrorShard_2', // これがないとCSSや画像のリンクが切れます
+  base: '/MirrorShard-Official', // これがないとCSSや画像のリンクが切れます
 });

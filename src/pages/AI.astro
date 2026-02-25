@@ -19,7 +19,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
                     </div>
                 </div>
                 <a href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest">Download</a>
-                <a href={`${baseUrl}/docs/`}>Docs</a>
+                <a href="https://github.com/DroicheadNua/MirrorShard_2/tree/main/docs">Docs</a>
                 <a href={`${baseUrl}/Blog/`}>Blog</a>
             </nav>
         </div>
@@ -37,7 +37,8 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
                 <div class="card">
                     <h3>Code Completion</h3>
                     <p>コードエディタモードにもAI機能を搭載。Alt+Enterを押すと、AIが必要なコードを推測して生成します。</p>
-                    <img src={`${baseUrl}/img/AI02.jpg`} alt="sc03" />
+                    <p>※本機能はローカルAI専用機能となります。Geminiでのコード補完はできません。</p>
+                    <img src={`${baseUrl}/img/AI02.jpg`} alt="AI02" />
                 </div>
             </div>
             <div class="right-piller">
@@ -45,7 +46,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
                     <h3>AI-powered Writing</h3>
                     <p>チャットウィンドウだけでなく、エディタ本体にもAI機能を搭載。</p>
                     <p>カーソル位置から続きを書かせたり、選択範囲を翻訳／要約／リライトさせたりできます。</p>
-                    <img src={`${baseUrl}/img/AI01.jpg`} alt="AI02" />
+                    <img src={`${baseUrl}/img/AI01.jpg`} alt="AI01" />
                 </div>
             </div>
         </div>
