@@ -20,6 +20,22 @@ const { title } = Astro.props;
         <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
 
         <ClientRouter />
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-T6Z580Q0JS"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      // 初期化だけしておく（configはまだ送らない）
+      
+      // Astroのページ遷移ごとにPVを送信するイベントリスナー
+      document.addEventListener('astro:page-load', () => {
+        gtag('config', 'G-T6Z580Q0JS', {
+            page_path: window.location.pathname
+        });
+      });
+    </script>
     </head>
     <body>
         <slot />
