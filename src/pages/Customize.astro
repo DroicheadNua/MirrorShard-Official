@@ -1,25 +1,51 @@
 ---
-import Layout from '../layouts/Layout.astro';
-const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+import Layout from "../layouts/Layout.astro";
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
-<Layout title="Appearance and Customization">
 
+<Layout title="Appearance and Customization">
     <header>
         <div class="container nav-wrapper">
-            <a href={baseUrl} class="logo" style="font-family: 'Orbitron';">[ Back to Home ]</Back></a>
+            <a href={baseUrl} class="logo" style="font-family: 'Orbitron';"
+                >[ Back to Home ]</a
+            >
             <nav>
-                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/About"}>About</a>
-                <div id=headerfeature>
+                <a href={import.meta.env.BASE_URL.replace(/\/$/, "") + "/About"}
+                    >About</a
+                >
+                <div id="headerfeature">
                     <button id="feature_pulldown">Features</button>
                     <div id="feature_menu" class="hidden">
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/immersive"} class="feature_item">没入感と縦書き</a>
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/AI"} class="feature_item">多彩なAI機能</a>
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Customize"} class="feature_item">自由な画面デザイン</a>
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Markdown"} class="feature_item">マークダウン・HTML編集</a>
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/immersive"}
+                            class="feature_item">没入感と縦書き</a
+                        >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/AI"}
+                            class="feature_item">多彩なAI機能</a
+                        >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/Customize"}
+                            class="feature_item">自由な画面デザイン</a
+                        >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/Markdown"}
+                            class="feature_item">マークダウン・HTML編集</a
+                        >
                     </div>
                 </div>
-                <a href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest">Download</a>
-                <a href="https://github.com/DroicheadNua/MirrorShard_2/tree/main/docs">Docs</a>
+                <a
+                    href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest"
+                    >Download</a
+                >
+                <a
+                    href="https://github.com/DroicheadNua/MirrorShard_2/tree/main/docs"
+                    >Docs</a
+                >
                 <a href={`${baseUrl}/Blog/`}>Blog</a>
             </nav>
         </div>
@@ -31,8 +57,12 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
             <div class="left-piller">
                 <div class="card">
                     <h3>Appearance Customization</h3>
-                    <p>エディタの配置や配色、背景画像などを自在にカスタマイズ可能。</p>
-                    <p>テキストエリアの透明度を上げれば、背景画像もより一層活かしやすくなります。</p>
+                    <p>
+                        エディタの配置や配色、背景画像などを自在にカスタマイズ可能。
+                    </p>
+                    <p>
+                        テキストエリアの透明度を上げれば、背景画像もより一層活かしやすくなります。
+                    </p>
                     <img src={`${baseUrl}/img/ScreenShot02.jpg`} alt="sc02" />
                 </div>
                 <div class="card">
@@ -53,13 +83,13 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 </Layout>
 
 <style>
-    main{
+    main {
         background: #050505;
         color: #eee;
     }
 
     h1 {
-        font-family: 'Orbitron';
+        font-family: "Orbitron";
         text-align: center;
         font-size: 3.5rem;
         margin-bottom: 1rem;
@@ -75,16 +105,16 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 </style>
 
 <script>
-    const featurepulldown = document.querySelector('header #feature_pulldown')!;
-    const featuremenu = document.querySelector('header #feature_menu')!;
-    featurepulldown.addEventListener('click', (e) => {
+    const featurepulldown = document.querySelector("header #feature_pulldown")!;
+    const featuremenu = document.querySelector("header #feature_menu")!;
+    featurepulldown.addEventListener("click", (e) => {
         e.stopPropagation();
-        featuremenu.classList.toggle('hidden');
+        featuremenu.classList.toggle("hidden");
     });
 
-    window.addEventListener('click', () => {
-        if (!featuremenu.classList.contains('hidden')) {
-            featuremenu.classList.add('hidden');
+    window.addEventListener("click", () => {
+        if (!featuremenu.classList.contains("hidden")) {
+            featuremenu.classList.add("hidden");
         }
     });
 </script>

@@ -1,29 +1,54 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
 // ベースURLの取得（末尾のスラッシュ調整）
-const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <Layout title="MirrorShard 2 - Immersive Writing Editor">
-
     <!-- ヘッダー -->
     <header>
         <div class="container nav-wrapper">
-            <a href={baseUrl} class="logo" style="font-family: 'Orbitron';">MirrorShard 2 Official Site</a>
+            <a href={baseUrl} class="logo" style="font-family: 'Orbitron';"
+                >MirrorShard 2 Official Site</a
+            >
             <nav>
-                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/About"}>About</a>
-                <div id=headerfeature>
+                <a href={import.meta.env.BASE_URL.replace(/\/$/, "") + "/About"}
+                    >About</a
+                >
+                <div id="headerfeature">
                     <button id="feature_pulldown">Features</button>
                     <div id="feature_menu" class="hidden">
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/immersive"} class="feature_item">没入感と縦書き</a>
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/AI"} class="feature_item">多彩なAI機能</a>
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Customize"} class="feature_item">自由な画面デザイン</a>
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Markdown"} class="feature_item">マークダウン・HTML編集</a>
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/immersive"}
+                            class="feature_item">没入感と縦書き</a
+                        >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/AI"}
+                            class="feature_item">多彩なAI機能</a
+                        >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/Customize"}
+                            class="feature_item">自由な画面デザイン</a
+                        >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/Markdown"}
+                            class="feature_item">マークダウン・HTML編集</a
+                        >
                     </div>
                 </div>
-                <a href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest">Download</a>
-                <a href="https://github.com/DroicheadNua/MirrorShard_2/tree/main/docs">Docs</a>
+                <a
+                    href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest"
+                    >Download</a
+                >
+                <a
+                    href="https://github.com/DroicheadNua/MirrorShard_2/tree/main/docs"
+                    >Docs</a
+                >
                 <a href={`${baseUrl}/Blog/`}>Blog</a>
             </nav>
         </div>
@@ -34,75 +59,118 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
         <section class="hero">
             <div class="container">
                 <h1>MirrorShard 2</h1>
-                <p style="text-align: center">没入型ライティングエディタの進化形。<br>AIと共に、物語を紡ごう。</p>
+                <p style="text-align: center">
+                    没入型ライティングエディタの進化形。<br
+                    />AIと共に、物語を紡ごう。
+                </p>
 
                 <div class="hero-image">
-                    <img src={`${baseUrl}/img/ScreenShot01.jpg`} alt="MirrorShard 2 Screenshot" />
+                    <img
+                        src={`${baseUrl}/img/ScreenShot01.jpg`}
+                        alt="MirrorShard 2 Screenshot"
+                    />
                 </div>
 
                 <div class="cta-buttons">
-                    <a href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest" class="btn primary">DOWNLOAD v1.2.0 (Win/Mac)</a>
-                    <a href="https://github.com/DroicheadNua/MirrorShard_2" class="btn secondary">GITHUB</a>
+                    <a
+                        href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest"
+                        class="btn primary">DOWNLOAD v1.2.0 (Win/Mac)</a
+                    >
+                    <a
+                        href="https://github.com/DroicheadNua/MirrorShard_2"
+                        class="btn secondary">GITHUB</a
+                    >
                 </div>
             </div>
         </section>
 
         <!-- 機能紹介（カード） -->
         <section class="container" id="featurescontainer">
-            <p style="font-size: 1.8em;text-align: center;font-weight: bolder;font-family: Orbitron;-webkit-text-stroke: 1px green;">Features</p>
+            <p
+                style="font-size: 1.8em;text-align: center;font-weight: bolder;font-family: Orbitron;-webkit-text-stroke: 1px green;"
+            >
+                Features
+            </p>
             <div class="features">
-                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/immersive"} class="main-card">
+                <a
+                    href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                        "/immersive"}
+                    class="main-card"
+                >
                     <h3>Immersive Writing</h3>
-                    <p>ミニマルなUIとBGM・タイプ音で、没入感の高い執筆体験を実現。</P>
-                    <p>ルビ対応の縦書きプレビューも搭載、日本語での執筆活動を強力に支援します。</p>
+                    <p>
+                        ミニマルなUIとBGM・タイプ音で、没入感の高い執筆体験を実現。
+                    </p>
+                    <p>
+                        ルビ対応の縦書きプレビューも搭載、日本語での執筆活動を強力に支援します。
+                    </p>
                     <img src={`${baseUrl}/img/ScreenShot01.jpg`} alt="sc01" />
                 </a>
-                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/AI"} class="main-card">
+                <a
+                    href={import.meta.env.BASE_URL.replace(/\/$/, "") + "/AI"}
+                    class="main-card"
+                >
                     <h3>AI Assistant</h3>
-                    <p>AIチャットウィンドウに加え、メインエディタにもAI機能を搭載。</p>
-                    <p>文章の続きを書かせたり、選択範囲をリライトさせたりと、多彩なサポートで執筆を支えます。</p>
+                    <p>
+                        AIチャットウィンドウに加え、メインエディタにもAI機能を搭載。
+                    </p>
+                    <p>
+                        文章の続きを書かせたり、選択範囲をリライトさせたりと、多彩なサポートで執筆を支えます。
+                    </p>
                     <img src={`${baseUrl}/img/ScreenShot03.jpg`} alt="sc03" />
                 </a>
             </div>
             <div class="features">
-                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Customize"} class="main-card">
+                <a
+                    href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                        "/Customize"}
+                    class="main-card"
+                >
                     <h3>Highly Customizable</h3>
                     <p>画面の配色や背景画像を自由にカスタマイズ可能。</p>
                     <img src={`${baseUrl}/img/ScreenShot02.jpg`} alt="sc02" />
                 </a>
-                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Markdown"} class="main-card">
+                <a
+                    href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                        "/Markdown"}
+                    class="main-card"
+                >
                     <h3>Markdown/HTML Edit</h3>
-                    <p>マークダウン/HTMLプレビューウィンドウを搭載、マークダウン・HTMLエディタとしても運用可能。</p>
+                    <p>
+                        マークダウン/HTMLプレビューウィンドウを搭載、マークダウン・HTMLエディタとしても運用可能。
+                    </p>
                     <p>このサイトもMirrorShard 2で作成されています。</p>
                     <img src={`${baseUrl}/img/ScreenShot04.jpg`} alt="sc03" />
                 </a>
             </div>
         </section>
-
     </main>
 
     <!-- フッター -->
     <footer>
         <div class="container">
-            <p>&copy; 2025-2026 DroicheadNua. Released under the MIT License.</p>
+            <p>
+                &copy; 2025-2026 DroicheadNua. Released under the MIT License.
+            </p>
         </div>
     </footer>
 </Layout>
 
 <style>
     /* ページ固有のスタイル */
-    html, body{
+    html,
+    body {
         background: #050505;
     }
 
     .hero {
         text-align: center;
         padding-bottom: 40px;
-        border-bottom: 1px solid #55555555; 
+        border-bottom: 1px solid #55555555;
     }
 
     .hero h1 {
-        font-family: 'Orbitron';
+        font-family: "Orbitron";
         -webkit-text-stroke: 2px green;
         font-size: 4.5rem;
         margin-bottom: 1rem;
@@ -151,8 +219,8 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
     }
     .main-card {
         text-decoration: none; /* アンダーラインを消す */
-        color: inherit;       /* 親（body等）の文字色を継承する */
-        display: block;       /* カード全体をクリッカブルにするため */
+        color: inherit; /* 親（body等）の文字色を継承する */
+        display: block; /* カード全体をクリッカブルにするため */
         background: #00050044;
         padding: 20px;
         border-radius: 12px;
@@ -168,7 +236,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
     }
     .main-card h3 {
         color: var(--accent-color);
-        font-family: 'Orbitron';
+        font-family: "Orbitron";
         margin-top: 0;
         text-align: center;
     }
@@ -195,17 +263,17 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
     }
 </style>
 <script>
-    const featurepulldown = document.querySelector('header #feature_pulldown')!;
-    const featuremenu = document.querySelector('header #feature_menu')!;
-    featurepulldown.addEventListener('click', (e) => {
+    const featurepulldown = document.querySelector("header #feature_pulldown")!;
+    const featuremenu = document.querySelector("header #feature_menu")!;
+    featurepulldown.addEventListener("click", (e) => {
         e.stopPropagation();
-        featuremenu.classList.toggle('hidden');
+        featuremenu.classList.toggle("hidden");
     });
 
     // ウィンドウのどこかをクリックしたら、メニューを閉じる (UX向上のため)
-    window.addEventListener('click', () => {
-        if (!featuremenu.classList.contains('hidden')) {
-            featuremenu.classList.add('hidden');
+    window.addEventListener("click", () => {
+        if (!featuremenu.classList.contains("hidden")) {
+            featuremenu.classList.add("hidden");
         }
     });
 </script>

@@ -1,25 +1,51 @@
 ---
-import Layout from '../layouts/Layout.astro';
-const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+import Layout from "../layouts/Layout.astro";
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
-<Layout title="About MirrorShard 2">
 
+<Layout title="About MirrorShard 2">
     <header>
         <div class="container nav-wrapper">
-            <a href={baseUrl} class="logo" style="font-family: 'Orbitron';">[ Back to Home ]</Back></a>
+            <a href={baseUrl} class="logo" style="font-family: 'Orbitron';"
+                >[ Back to Home ]</a
+            >
             <nav>
-                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/About"}>About</a>
-                <div id=headerfeature>
+                <a href={import.meta.env.BASE_URL.replace(/\/$/, "") + "/About"}
+                    >About</a
+                >
+                <div id="headerfeature">
                     <button id="feature_pulldown">Features</button>
                     <div id="feature_menu" class="hidden">
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/immersive"} class="feature_item">没入感と縦書き</a>
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/AI"} class="feature_item">多彩なAI機能</a>
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Customize"} class="feature_item">自由な画面デザイン</a>
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Markdown"} class="feature_item">マークダウン・HTML編集</a>
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/immersive"}
+                            class="feature_item">没入感と縦書き</a
+                        >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/AI"}
+                            class="feature_item">多彩なAI機能</a
+                        >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/Customize"}
+                            class="feature_item">自由な画面デザイン</a
+                        >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/Markdown"}
+                            class="feature_item">マークダウン・HTML編集</a
+                        >
                     </div>
                 </div>
-                <a href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest">Download</a>
-                <a href="https://github.com/DroicheadNua/MirrorShard_2/tree/main/docs">Docs</a>
+                <a
+                    href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest"
+                    >Download</a
+                >
+                <a
+                    href="https://github.com/DroicheadNua/MirrorShard_2/tree/main/docs"
+                    >Docs</a
+                >
                 <a href={`${baseUrl}/Blog/`}>Blog</a>
             </nav>
         </div>
@@ -32,40 +58,74 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
                 <div class="card">
                     <h2>MirrorShardとは？</h2>
                     <p>クロスプラットフォームの創作支援用エディタです。</p>
-                    <p>没入感の高いミニマルなデザインと、日本語の創作に特化した縦書きプレビュー、AIチャット機能などが特徴のエディタで、
-                        大手ITサイトの「窓の杜」さんでもご紹介いただきました。</p>
-                    <br>
-                    <a href="https://forest.watch.impress.co.jp/docs/review/2057327.html" target="_blank" rel="noopener noreferrer" style="font-style: italic;text-decoration: underline">シンプル・ミニマルで禅の境地 ～小説執筆に特化したWin/Mac向けエディター「MirrorShard」</a>
-                    <br>
-                    <br>
-                    <a href="https://forest.watch.impress.co.jp/docs/news/2063091.html" target="_blank" rel="noopener noreferrer" style="font-style: italic;text-decoration: underline">小説執筆のためのテキストエディター「MirrorShard」にAIチャット機能、v1.5.0が公開</a>
+                    <p>
+                        没入感の高いミニマルなデザインと、日本語の創作に特化した縦書きプレビュー、AIチャット機能などが特徴のエディタで、
+                        大手ITサイトの「窓の杜」さんでもご紹介いただきました。
+                    </p>
+                    <br />
+                    <a
+                        href="https://forest.watch.impress.co.jp/docs/review/2057327.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style="font-style: italic;text-decoration: underline"
+                        >シンプル・ミニマルで禅の境地
+                        ～小説執筆に特化したWin/Mac向けエディター「MirrorShard」</a
+                    >
+                    <br />
+                    <br />
+                    <a
+                        href="https://forest.watch.impress.co.jp/docs/news/2063091.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style="font-style: italic;text-decoration: underline"
+                        >小説執筆のためのテキストエディター「MirrorShard」にAIチャット機能、v1.5.0が公開</a
+                    >
                     <img src={`${baseUrl}/img/electron01.jpg`} alt="sc03" />
-                                    <div class="cta-buttons">
-                    <a href="https://github.com/DroicheadNua/MirrorShard/releases/latest" class="btn primary">MirrorShard（前作）のダウンロードはこちら</a>
-                </div>
+                    <div class="cta-buttons">
+                        <a
+                            href="https://github.com/DroicheadNua/MirrorShard/releases/latest"
+                            class="btn primary"
+                            >MirrorShard（前作）のダウンロードはこちら</a
+                        >
+                    </div>
                 </div>
             </div>
             <div class="right-piller">
                 <div class="card">
                     <h2>MirrorShard 2の特徴</h2>
-                    <p>前作「MirrorShard」をベースに、ソフトウェアフレームワークをTauriに変更して大幅にブラッシュアップ。</p>
-                    <p>起動の高速化と省メモリ化に成功し、さらにファイルサイズは前作の183MBからわずか6MB（Windows版）へと、約30分の1にまでスリム化しました。</p>
-                    <p>他にも新たなAI機能の追加、マークダウン/HTMLプレビューウィンドウの実装など、
-                        新機能の追加が行われています。</p>          
+                    <p>
+                        前作「MirrorShard」をベースに、ソフトウェアフレームワークをTauriに変更して大幅にブラッシュアップ。
+                    </p>
+                    <p>
+                        起動の高速化と省メモリ化に成功し、さらにファイルサイズは前作の183MBからわずか6MB（Windows版）へと、約30分の1にまでスリム化しました。
+                    </p>
+                    <p>
+                        他にも新たなAI機能の追加、マークダウン/HTMLプレビューウィンドウの実装など、
+                        新機能の追加が行われています。
+                    </p>
                 </div>
                 <div class="card">
                     <h3 style="font-family: 'M PLUS 1p'">注意事項</h3>
                     <p>
-                        ・エンコードは原則として、UTF-8 (BOMなし) での利用を強く推奨します。<br>
+                        ・エンコードは原則として、UTF-8 (BOMなし)
+                        での利用を強く推奨します。<br />
                         ・縦書きでのエクスポートにはPandocのインストールが必要です（横書きは不要）
                     </p>
                     <h3 style="font-family: 'M PLUS 1p'">免責事項</h3>
-                    <p>このソフトウェアはフリーウェアであり、無保証（AS IS）で提供されます。
+                    <p>
+                        このソフトウェアはフリーウェアであり、無保証（AS
+                        IS）で提供されます。
                         作者は、このソフトウェアの使用によって生じたいかなる損害（データの損失、逸失利益などを含むがこれに限らない）についても、一切の責任を負いません。
                         開発には細心の注意を払っていますが、予期せぬ不具合が含まれている可能性があります。重要なデータを扱う際には、定期的にバックアップを取るようにしてください。
-                        このソフトウェアを利用した時点で、上記の免責事項に同意したものとみなします。</p>
+                        このソフトウェアを利用した時点で、上記の免責事項に同意したものとみなします。
+                    </p>
                     <h3 style="font-family: 'M PLUS 1p'">ライセンス</h3>
-                    <p>本ソフトウェアは<a href="https://github.com/DroicheadNua/MirrorShard_2/blob/main/LICENSE">MITライセンス</a>のもとで公開されています。</p>
+                    <p>
+                        本ソフトウェアは<a
+                            href="https://github.com/DroicheadNua/MirrorShard_2/blob/main/LICENSE"
+                            >MITライセンス</a
+                        >のもとで公開されています。
+                    </p>
                 </div>
             </div>
         </div>
@@ -73,13 +133,13 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 </Layout>
 
 <style>
-    main{
+    main {
         background: #050505;
         color: #eee;
     }
 
     h1 {
-        font-family: 'Orbitron';
+        font-family: "Orbitron";
         text-align: center;
         font-size: 3.5rem;
         margin-bottom: 1rem;
@@ -87,13 +147,13 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
         text-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
         -webkit-text-stroke: 2px green;
     }
-    h2{
-        font-family: 'Orbitron';
+    h2 {
+        font-family: "Orbitron";
         font-size: 2rem;
         color: #00ff22;
         text-align: center;
     }
-    h3{
+    h3 {
         color: orange;
     }
 
@@ -103,7 +163,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
         font-family: "M PLUS 1p";
     }
 
-        .btn {
+    .btn {
         display: inline-block;
         padding: 12px 30px;
         border-radius: 4px;
@@ -125,20 +185,19 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
         color: #000;
         box-shadow: 0 0 20px var(--accent-color);
     }
-
 </style>
 
 <script>
-    const featurepulldown = document.querySelector('header #feature_pulldown')!;
-    const featuremenu = document.querySelector('header #feature_menu')!;
-    featurepulldown.addEventListener('click', (e) => {
+    const featurepulldown = document.querySelector("header #feature_pulldown")!;
+    const featuremenu = document.querySelector("header #feature_menu")!;
+    featurepulldown.addEventListener("click", (e) => {
         e.stopPropagation();
-        featuremenu.classList.toggle('hidden');
+        featuremenu.classList.toggle("hidden");
     });
 
-    window.addEventListener('click', () => {
-        if (!featuremenu.classList.contains('hidden')) {
-            featuremenu.classList.add('hidden');
+    window.addEventListener("click", () => {
+        if (!featuremenu.classList.contains("hidden")) {
+            featuremenu.classList.add("hidden");
         }
     });
 </script>

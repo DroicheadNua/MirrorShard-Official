@@ -1,25 +1,51 @@
 ---
-import Layout from '../layouts/Layout.astro';
-const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+import Layout from "../layouts/Layout.astro";
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
-<Layout title="AI Assistant">
 
+<Layout title="AI Assistant">
     <header>
         <div class="container nav-wrapper">
-            <a href={baseUrl} class="logo" style="font-family: 'Orbitron';">[ Back to Home ]</Back></a>
+            <a href={baseUrl} class="logo" style="font-family: 'Orbitron';"
+                >[ Back to Home ]</a
+            >
             <nav>
-                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/About"}>About</a>
-                <div id=headerfeature>
+                <a href={import.meta.env.BASE_URL.replace(/\/$/, "") + "/About"}
+                    >About</a
+                >
+                <div id="headerfeature">
                     <button id="feature_pulldown">Features</button>
                     <div id="feature_menu" class="hidden">
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/immersive"} class="feature_item">没入感と縦書き</a>
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/AI"} class="feature_item">多彩なAI機能</a>
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Customize"} class="feature_item">自由な画面デザイン</a>
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Markdown"} class="feature_item">マークダウン・HTML編集</a>
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/immersive"}
+                            class="feature_item">没入感と縦書き</a
+                        >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/AI"}
+                            class="feature_item">多彩なAI機能</a
+                        >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/Customize"}
+                            class="feature_item">自由な画面デザイン</a
+                        >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/Markdown"}
+                            class="feature_item">マークダウン・HTML編集</a
+                        >
                     </div>
                 </div>
-                <a href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest">Download</a>
-                <a href="https://github.com/DroicheadNua/MirrorShard_2/tree/main/docs">Docs</a>
+                <a
+                    href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest"
+                    >Download</a
+                >
+                <a
+                    href="https://github.com/DroicheadNua/MirrorShard_2/tree/main/docs"
+                    >Docs</a
+                >
                 <a href={`${baseUrl}/Blog/`}>Blog</a>
             </nav>
         </div>
@@ -31,21 +57,32 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
             <div class="left-piller">
                 <div class="card">
                     <h3>AI Chat</h3>
-                    <p>APIを利用したGoogle Geminiとの対話と、LM StudioやOllamaを利用したローカルLLMの運用、その双方に対応したAIチャットウィンドウを搭載。用途に応じて多彩な活用が可能です。</p>
+                    <p>
+                        APIを利用したGoogle Geminiとの対話と、LM
+                        StudioやOllamaを利用したローカルLLMの運用、その双方に対応したAIチャットウィンドウを搭載。用途に応じて多彩な活用が可能です。
+                    </p>
                     <img src={`${baseUrl}/img/ScreenShot03.jpg`} alt="sc03" />
                 </div>
                 <div class="card">
                     <h3>Code Completion</h3>
-                    <p>コードエディタモードにもAI機能を搭載。Alt+Enterを押すと、AIが必要なコードを推測して生成します。</p>
-                    <p>※本機能はローカルAI専用機能となります。Geminiでのコード補完はできません。</p>
+                    <p>
+                        コードエディタモードにもAI機能を搭載。Alt+Enterを押すと、AIが必要なコードを推測して生成します。
+                    </p>
+                    <p>
+                        ※本機能はローカルAI専用機能となります。Geminiでのコード補完はできません。
+                    </p>
                     <img src={`${baseUrl}/img/AI02.jpg`} alt="AI02" />
                 </div>
             </div>
             <div class="right-piller">
                 <div class="card">
                     <h3>AI-powered Writing</h3>
-                    <p>チャットウィンドウだけでなく、エディタ本体にもAI機能を搭載。</p>
-                    <p>カーソル位置から続きを書かせたり、選択範囲を翻訳／要約／リライトさせたりできます。</p>
+                    <p>
+                        チャットウィンドウだけでなく、エディタ本体にもAI機能を搭載。
+                    </p>
+                    <p>
+                        カーソル位置から続きを書かせたり、選択範囲を翻訳／要約／リライトさせたりできます。
+                    </p>
                     <img src={`${baseUrl}/img/AI01.jpg`} alt="AI01" />
                 </div>
             </div>
@@ -54,13 +91,13 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 </Layout>
 
 <style>
-    main{
+    main {
         background: #050505;
         color: #eee;
     }
 
     h1 {
-        font-family: 'Orbitron';
+        font-family: "Orbitron";
         text-align: center;
         font-size: 3.5rem;
         margin-bottom: 1rem;
@@ -68,7 +105,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
         text-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
         -webkit-text-stroke: 2px green;
     }
-    
+
     p {
         color: #eee;
         text-align: start;
@@ -77,16 +114,16 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 </style>
 
 <script>
-    const featurepulldown = document.querySelector('header #feature_pulldown')!;
-    const featuremenu = document.querySelector('header #feature_menu')!;
-    featurepulldown.addEventListener('click', (e) => {
+    const featurepulldown = document.querySelector("header #feature_pulldown")!;
+    const featuremenu = document.querySelector("header #feature_menu")!;
+    featurepulldown.addEventListener("click", (e) => {
         e.stopPropagation();
-        featuremenu.classList.toggle('hidden');
+        featuremenu.classList.toggle("hidden");
     });
 
-    window.addEventListener('click', () => {
-        if (!featuremenu.classList.contains('hidden')) {
-            featuremenu.classList.add('hidden');
+    window.addEventListener("click", () => {
+        if (!featuremenu.classList.contains("hidden")) {
+            featuremenu.classList.add("hidden");
         }
     });
 </script>
