@@ -114,16 +114,23 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 </style>
 
 <script>
-    const featurepulldown = document.querySelector("header #feature_pulldown")!;
-    const featuremenu = document.querySelector("header #feature_menu")!;
-    featurepulldown.addEventListener("click", (e) => {
-        e.stopPropagation();
-        featuremenu.classList.toggle("hidden");
-    });
+    document.addEventListener("astro:page-load", () => {
+        const featurepulldown = document.querySelector(
+            "header #feature_pulldown"
+        );
+        const featuremenu = document.querySelector("header #feature_menu");
 
-    window.addEventListener("click", () => {
-        if (!featuremenu.classList.contains("hidden")) {
-            featuremenu.classList.add("hidden");
+        if (featurepulldown && featuremenu) {
+            featurepulldown.addEventListener("click", (e) => {
+                e.stopPropagation();
+                featuremenu.classList.toggle("hidden");
+            });
+
+            window.addEventListener("click", () => {
+                if (!featuremenu.classList.contains("hidden")) {
+                    featuremenu.classList.add("hidden");
+                }
+            });
         }
     });
 </script>
