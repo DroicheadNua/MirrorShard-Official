@@ -1,87 +1,216 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-// docsフォルダ内のすべての .md ファイルを取得
-const docs = Object.values(import.meta.glob('./*.md', { eager: true }));
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+const githubDocsUrl = "https://github.com/DroicheadNua/MirrorShard_2/blob/main/docs";
+
+// ドキュメント一覧の定義
+const documents = [
+    {
+        title: "ユーザーマニュアル",
+        file: "user-manual.md",
+        desc: "基本操作、ショートカットキー一覧、機能の解説など"
+    },
+    {
+        title: "AI機能使用ガイド",
+        file: "ai-guide.md",
+        desc: "AIチャット、執筆支援、コード補完などのAI機能の詳細な使い方"
+    },
+    {
+        title: "Pandoc導入ガイド",
+        file: "pandoc-guide.md",
+        desc: "縦書きEPUB/HTMLエクスポートに必要なPandocのインストールと設定"
+    },
+    {
+        title: "FAQ (よくある質問)",
+        file: "faq.md",
+        desc: "トラブルシューティング、既知の不具合、その他情報"
+    },
+    {
+        title: "Linux版について",
+        file: "linux-support.md",
+        desc: "Linux環境での動作状況やビルドに関する情報"
+    },
+    {
+        title: "その他わりとどうでもいい情報",
+        file: "misc.md",
+        desc: "Readmeに書くような情報ではないものや、開発の裏話的な何か"
+    }
+];
 ---
 
 <Layout title="Documents - MirrorShard 2">
-
-    <header>
+        <header>
         <div class="container nav-wrapper">
-            <a href={baseUrl} class="logo" style="font-family: 'Orbitron';">[ Back to Home ]</Back></a>
+            <a href={baseUrl} class="logo" style="font-family: 'Orbitron';"
+                >[ Back to Home ]</a
+            >
             <nav>
-                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/About"}>About</a>
-                <div id=headerfeature>
+                <a href={import.meta.env.BASE_URL.replace(/\/$/, "") + "/About"}
+                    >About</a
+                >
+                <div id="headerfeature">
                     <button id="feature_pulldown">Features</button>
                     <div id="feature_menu" class="hidden">
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/immersive"} class="feature_item">没入感と縦書き</a>
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/AI"} class="feature_item">多彩なAI機能</a>
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Customize"} class="feature_item">自由な画面デザイン</a>
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Markdown"} class="feature_item">マークダウン・HTML編集</a>
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/immersive"}
+                            class="feature_item">没入感と縦書き</a
+                        >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/AI"}
+                            class="feature_item">多彩なAI機能</a
+                        >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/Customize"}
+                            class="feature_item">自由な画面デザイン</a
+                        >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/Markdown"}
+                            class="feature_item">マークダウン・HTML編集</a
+                        >
                     </div>
                 </div>
-                <a href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest">Download</a>
-                <a href="https://github.com/DroicheadNua/MirrorShard_2/tree/main/docs">Docs</a>
+                <a
+                    href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest"
+                    >Download</a
+                >
+                <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/docs/`}>Docs</a>
                 <a href={`${baseUrl}/Blog/`}>Blog</a>
             </nav>
         </div>
     </header>
-    
-    <div class="container" style="padding-top: 50px;">
-        <h1>Documents</h1>
-        <p>MirrorShard 2 のドキュメント類一覧</p>
-        
-        <div class="doc-list">
-            <ul>
-                {docs.map(doc => (
-                    <li>
-                        <!-- doc.url は自動生成されたリンク先 (/docs/filename) -->
-                        <a href={doc.url} class="doc-link">
-                            <h3>{doc.frontmatter.title || 'No Title'}</h3>
-                            <p>{doc.frontmatter.description || ''}</p>
-                        </a>
-                    </li>
-                ))}
-            </ul>
+    <main class="container">
+        <h1 class="page-title">Documentation</h1>
+        <p class="page-desc">MirrorShard 2 の公式マニュアル・ガイド一覧（GitHubへ移動します）</p>
+
+        <div class="docs-grid">
+            {documents.map(doc => (
+                <a href={`${githubDocsUrl}/${doc.file}`} target="_blank" rel="noopener noreferrer" class="doc-card">
+                    <div class="icon">📄</div>
+                    <div class="info">
+                        <h3>{doc.title}</h3>
+                        <p>{doc.desc}</p>
+                        <span class="filename">{doc.file}</span>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+            ))}
         </div>
-    </div>
+        
+    </main>
 </Layout>
 
 <style>
-    .doc-list ul {
-        list-style: none;
-        padding: 0;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
+    /* ページ全体のスタイル */
+    .page-title {
+        font-family: 'Orbitron', sans-serif;
+        text-align: center;
+        margin-top: 60px;
+        margin-bottom: 10px;
+        font-size: 3rem;
+        color: #fff;
+        text-shadow: 0 0 10px var(--secondary-color);
     }
-    
-    .doc-link {
-        display: block;
-        padding: 20px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid #333;
-        border-radius: 8px;
-        text-decoration: none;
-        color: inherit;
-        transition: all 0.2s;
-    }
-    
-    .doc-link:hover {
-        border-color: var(--accent-color);
-        background: rgba(0, 255, 65, 0.05);
-        transform: translateY(-2px);
+    .page-desc {
+        text-align: center;
+        color: #aaa;
+        margin-bottom: 50px;
     }
 
-    .doc-link h3 {
+    /* グリッドレイアウト */
+    .docs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    /* カードスタイル */
+    .doc-card {
+        display: flex;
+        align-items: center;
+        background: rgba(20, 20, 25, 0.8);
+        border: 1px solid #00ff2255;
+        box-shadow: 0 0 20px green;
+        border-radius: 8px;
+        padding: 20px;
+        text-decoration: none;
+        color: var(--text-color);
+        transition: all 0.2s ease;
+        position: relative;
+        overflow: hidden;
+        font-family: serif;
+    }
+
+    /* ホバー時の発光エフェクト */
+    .doc-card:hover {
+        border-color: var(--accent-color);
+        background: rgba(0, 255, 65, 0.1);
+        transform: translateY(-2px);
+        box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
+    }
+
+    .icon {
+        font-size: 2rem;
+        margin-right: 15px;
+        opacity: 0.7;
+    }
+
+    .info h3 {
+        margin: 0 0 5px 0;
+        color: var(--accent-color);
+        font-size: 1.1rem;
+    }
+
+    .info p {
         margin: 0;
+        font-size: 0.9rem;
         color: #ccc;
+        line-height: 1.4;
+        font-family: "M PLUS 1p";
     }
-    .doc-link p {
-        margin: 0;
-        font-size: 0.9em;
-        color: #aaa;
+    
+    .filename {
+        display: block;
+        margin-top: 8px;
+        font-family: monospace;
+        font-size: 0.75rem;
+        color: #555;
     }
+
+    .arrow {
+        margin-left: auto;
+        font-weight: bold;
+        color: #555;
+        transition: color 0.2s;
+    }
+    .doc-card:hover .arrow {
+        color: var(--accent-color);
+    }
+
 </style>
+
+<script>
+    document.addEventListener("astro:page-load", () => {
+        const featurepulldown = document.querySelector(
+            "header #feature_pulldown"
+        );
+        const featuremenu = document.querySelector("header #feature_menu");
+
+        if (featurepulldown && featuremenu) {
+            featurepulldown.addEventListener("click", (e) => {
+                e.stopPropagation();
+                featuremenu.classList.toggle("hidden");
+            });
+
+            window.addEventListener("click", () => {
+                if (!featuremenu.classList.contains("hidden")) {
+                    featuremenu.classList.add("hidden");
+                }
+            });
+        }
+    });
+</script>
