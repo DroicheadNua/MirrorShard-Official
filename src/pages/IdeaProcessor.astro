@@ -3,39 +3,39 @@ import Layout from "../layouts/Layout.astro";
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
-<Layout title="AI Assistant">
+<Layout title="Idea Processor">
     <header>
         <div class="container nav-wrapper">
             <a href={baseUrl} class="logo" style="font-family: 'Orbitron';"
                 >[ Back to Home ]</a
-            >
+                                     >
             <nav>
                 <a href={import.meta.env.BASE_URL.replace(/\/$/, "") + "/About"}
                     >About</a
-                >
+                              >
                 <div id="headerfeature">
                     <button id="feature_pulldown">Features</button>
                     <div id="feature_menu" class="hidden">
                         <a
                             href={import.meta.env.BASE_URL.replace(/\/$/, "") +
-                                "/immersive"}
+                            "/immersive"}
                             class="feature_item">没入感と縦書き</a
-                        >
+                                                            >
                         <a
                             href={import.meta.env.BASE_URL.replace(/\/$/, "") +
-                                "/AI"}
+                            "/AI"}
                             class="feature_item">多彩なAI機能</a
-                        >
+                                                            >
                         <a
                             href={import.meta.env.BASE_URL.replace(/\/$/, "") +
-                                "/Customize"}
+                            "/Customize"}
                             class="feature_item">自由な画面デザイン</a
-                        >
+                                                              >
                         <a
                             href={import.meta.env.BASE_URL.replace(/\/$/, "") +
-                                "/Markdown"}
+                            "/Markdown"}
                             class="feature_item">マークダウン・HTML編集</a
-                        >
+                                                                  >
                         <a
                             href={import.meta.env.BASE_URL.replace(/\/$/, "") +
                             "/IdeaProcessor"}
@@ -46,7 +46,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
                 <a
                     href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest"
                     >Download</a
-                >
+                                 >
                 <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/docs/`}>Docs</a>
                 <a href={`${baseUrl}/Blog/`}>Blog</a>
             </nav>
@@ -54,39 +54,21 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     </header>
 
     <main>
-        <h1>AI Assistant</h1>
+        <h1>Idea Processor</h1>
         <div class="piller-wrapper">
             <div class="left-piller">
                 <div class="card">
-                    <h3>AI Chat</h3>
+                    <h3>Idea Processor</h3>
                     <p>
-                        APIを利用したGoogle Geminiとの対話と、LM
-                        StudioやOllama、koboldcppなどを利用したローカルLLMの運用、その双方に対応したAIチャットウィンドウを搭載。用途に応じて多彩な活用が可能です。
+                        階層構造の情報整理も可能なアイデアプロセッサを搭載。
+                        発想支援からデータ管理まで、幅広く活用できます。
                     </p>
-                    <img src={`${baseUrl}/img/ScreenShot03.jpg`} alt="sc03" />
+                    <img src={`${baseUrl}/img/ScreenShot05.jpg`} alt="sc05" />
                 </div>
-                <div class="card">
-                    <h3>Code Completion</h3>
-                    <p>
-                        コードエディタモードにもAI機能を搭載。Alt+Enterを押すと、AIが必要なコードを推測して生成します。
-                    </p>
-                    <p>
-                        ※本機能はローカルAI専用機能となります。Geminiでのコード補完はできません。
-                    </p>
-                    <img src={`${baseUrl}/img/AI02.jpg`} alt="AI02" />
-                </div>
+
             </div>
             <div class="right-piller">
-                <div class="card">
-                    <h3>AI-powered Writing</h3>
-                    <p>
-                        チャットウィンドウだけでなく、エディタ本体にもAI機能を搭載。
-                    </p>
-                    <p>
-                        カーソル位置から続きを書かせたり、選択範囲を翻訳／要約／リライトさせたりできます。
-                    </p>
-                    <img src={`${baseUrl}/img/AI01.jpg`} alt="AI01" />
-                </div>
+
             </div>
         </div>
     </main>
@@ -116,21 +98,21 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 </style>
 
 <script>
-    document.addEventListener("astro:page-load", () => {
-        const featurepulldown = document.querySelector(
-            "header #feature_pulldown"
-        );
-        const featuremenu = document.querySelector("header #feature_menu");
+    document.addEventListener('astro:page-load', () => {
+        const featurepulldown = document.querySelector('header #feature_pulldown');
+        const featuremenu = document.querySelector('header #feature_menu');
 
+        // 要素が存在する場合のみリスナーを登録（エラー防止）
         if (featurepulldown && featuremenu) {
-            featurepulldown.addEventListener("click", (e) => {
+            featurepulldown.addEventListener('click', (e) => {
                 e.stopPropagation();
-                featuremenu.classList.toggle("hidden");
+                featuremenu.classList.toggle('hidden');
             });
 
-            window.addEventListener("click", () => {
-                if (!featuremenu.classList.contains("hidden")) {
-                    featuremenu.classList.add("hidden");
+            // ウィンドウのどこかをクリックしたら、メニューを閉じる
+            window.addEventListener('click', () => {
+                if (!featuremenu.classList.contains('hidden')) {
+                    featuremenu.classList.add('hidden');
                 }
             });
         }

@@ -39,6 +39,11 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
                             "/Markdown"}
                             class="feature_item">マークダウン・HTML編集</a
                                                                   >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                            "/IdeaProcessor"}
+                            class="feature_item">アイデアプロセッサ</a
+                                                              >
                     </div>
                 </div>
                 <a
@@ -71,7 +76,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
                 <div class="cta-buttons">
                     <a
                         href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest"
-                        class="btn primary">DOWNLOAD v1.3.0 (Win/Mac)</a
+                        class="btn primary">DOWNLOAD v1.4.1 (Win/Mac)</a
                                                                          >
                     <a
                         href="https://github.com/DroicheadNua/MirrorShard_2"
@@ -83,6 +88,16 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 
         <!-- 機能紹介（カード） -->
         <section class="container" id="featurescontainer">
+            <p style="text-align: center">
+                **「窓の杜」様でご紹介いただきました **
+            </p>
+            <a
+                href="https://forest.watch.impress.co.jp/docs/news/2091824.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="font-style: italic;text-decoration: underline;display: block; width: fit-content; margin: 0 auto;"
+                >日本語小説エディター「MirrorShard」が「Tauri」で生まれ変わった！ 軽量・高速に</a
+                                                                    >
             <p
                 style="font-size: 1.8em;text-align: center;font-weight: bolder;font-family: Orbitron;-webkit-text-stroke: 1px green;"
                 >
@@ -138,6 +153,18 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
                     </p>
                     <p>このサイトもMirrorShard 2で作成されています。</p>
                     <img src={`${baseUrl}/img/ScreenShot04.jpg`} alt="sc03" />
+                </a>
+            </div>
+            <div class="features" style="max-width: 50%;align-items: center">
+                <a
+                    href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                    "/IdeaProcessor"}
+                    class="main-card"
+                    >
+                    <h3>Idea Processor</h3>
+                    <p>ノードベースのアイデアプロセッサに、階層構造のデータ管理機能を統合。</p>
+                    <p>発想支援からデータ管理まで、幅広い運用が可能。</p>
+                    <img src={`${baseUrl}/img/ScreenShot05.jpg`} alt="sc02" />
                 </a>
             </div>
         </section>
@@ -261,24 +288,21 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 </style>
 
 <script>
-    // ページがロード・遷移するたびに実行させる
-    document.addEventListener("astro:page-load", () => {
-        const featurepulldown = document.querySelector(
-            "header #feature_pulldown"
-        );
-        const featuremenu = document.querySelector("header #feature_menu");
+    document.addEventListener('astro:page-load', () => {
+        const featurepulldown = document.querySelector('header #feature_pulldown');
+        const featuremenu = document.querySelector('header #feature_menu');
 
         // 要素が存在する場合のみリスナーを登録（エラー防止）
         if (featurepulldown && featuremenu) {
-            featurepulldown.addEventListener("click", (e) => {
+            featurepulldown.addEventListener('click', (e) => {
                 e.stopPropagation();
-                featuremenu.classList.toggle("hidden");
+                featuremenu.classList.toggle('hidden');
             });
 
             // ウィンドウのどこかをクリックしたら、メニューを閉じる
-            window.addEventListener("click", () => {
-                if (!featuremenu.classList.contains("hidden")) {
-                    featuremenu.classList.add("hidden");
+            window.addEventListener('click', () => {
+                if (!featuremenu.classList.contains('hidden')) {
+                    featuremenu.classList.add('hidden');
                 }
             });
         }

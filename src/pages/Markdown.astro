@@ -36,6 +36,11 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
                                 "/Markdown"}
                             class="feature_item">マークダウン・HTML編集</a
                         >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                            "/IdeaProcessor"}
+                            class="feature_item">アイデアプロセッサ</a
+                                                                >
                     </div>
                 </div>
                 <a
@@ -108,21 +113,21 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 </style>
 
 <script>
-    document.addEventListener("astro:page-load", () => {
-        const featurepulldown = document.querySelector(
-            "header #feature_pulldown"
-        );
-        const featuremenu = document.querySelector("header #feature_menu");
+    document.addEventListener('astro:page-load', () => {
+        const featurepulldown = document.querySelector('header #feature_pulldown');
+        const featuremenu = document.querySelector('header #feature_menu');
 
+        // 要素が存在する場合のみリスナーを登録（エラー防止）
         if (featurepulldown && featuremenu) {
-            featurepulldown.addEventListener("click", (e) => {
+            featurepulldown.addEventListener('click', (e) => {
                 e.stopPropagation();
-                featuremenu.classList.toggle("hidden");
+                featuremenu.classList.toggle('hidden');
             });
 
-            window.addEventListener("click", () => {
-                if (!featuremenu.classList.contains("hidden")) {
-                    featuremenu.classList.add("hidden");
+            // ウィンドウのどこかをクリックしたら、メニューを閉じる
+            window.addEventListener('click', () => {
+                if (!featuremenu.classList.contains('hidden')) {
+                    featuremenu.classList.add('hidden');
                 }
             });
         }
