@@ -8,45 +8,45 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
         <div class="container nav-wrapper">
             <a href={baseUrl} class="logo" style="font-family: 'Orbitron';"
                 >[ Back to Home ]</a
-            >
+                                     >
             <nav>
                 <a href={import.meta.env.BASE_URL.replace(/\/$/, "") + "/About"}
                     >About</a
-                >
+                              >
                 <div id="headerfeature">
                     <button id="feature_pulldown">Features</button>
                     <div id="feature_menu" class="hidden">
                         <a
                             href={import.meta.env.BASE_URL.replace(/\/$/, "") +
-                                "/immersive"}
+                            "/immersive"}
                             class="feature_item">没入感と縦書き</a
-                        >
+                                                            >
                         <a
                             href={import.meta.env.BASE_URL.replace(/\/$/, "") +
-                                "/AI"}
+                            "/AI"}
                             class="feature_item">多彩なAI機能</a
-                        >
+                                                            >
                         <a
                             href={import.meta.env.BASE_URL.replace(/\/$/, "") +
-                                "/Customize"}
+                            "/Customize"}
                             class="feature_item">自由な画面デザイン</a
-                        >
+                                                              >
                         <a
                             href={import.meta.env.BASE_URL.replace(/\/$/, "") +
-                                "/Markdown"}
-                            class="feature_item">マークダウン・HTML編集</a
-                        >
+                            "/Markdown"}
+                            class="feature_item">開発関連機能</a
+                                                                  >
                         <a
                             href={import.meta.env.BASE_URL.replace(/\/$/, "") +
                             "/IdeaProcessor"}
                             class="feature_item">アイデアプロセッサ</a
-                                                                >
+                                                              >
                     </div>
                 </div>
                 <a
                     href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest"
                     >Download</a
-                >
+                                 >
                 <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/docs/`}>Docs</a>
                 <a href={`${baseUrl}/Blog/`}>Blog</a>
             </nav>
@@ -83,6 +83,16 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
                         行番号表示やシンタックスハイライトのほか、簡易フォーマッタやAIによるコード補完機能も実装。
                     </p>
                     <img src={`${baseUrl}/img/md02.jpg`} alt="md02" />
+                </div>
+                <div class="card">
+                    <h3>OpenCode</h3>
+                    <p>
+                        AIコーディングエージェント「OpenCode」がインストールされていれば、ショートカット一発で起動が可能。
+                    </p>
+                    <p>
+                        コードエディタモードと併用すれば、アプリ開発にも使用できます。
+                    </p>
+                    <img src={`${baseUrl}/img/ScreenShot06.jpg`} alt="SC06" />
                 </div>
             </div>
         </div>
