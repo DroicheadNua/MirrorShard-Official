@@ -1,61 +1,62 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import Layout from "../../layouts/Layout.astro";
 
-const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
-const githubDocsUrl = "https://github.com/DroicheadNua/MirrorShard_2/blob/main/docs";
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+const githubDocsUrl =
+    "https://github.com/DroicheadNua/MirrorShard_2/blob/main/docs";
 
 // ドキュメント一覧の定義
 const documents = [
     {
         title: "機能概要",
         file: "features-ja.md",
-        desc: "MirrorShard 2の機能の概要"
+        desc: "MirrorShard 2の機能の概要",
     },
     {
         title: "ユーザーマニュアル",
         file: "user-manual-ja.md",
-        desc: "基本操作、ショートカットキー一覧、機能の解説など"
+        desc: "基本操作、ショートカットキー一覧、機能の解説など",
     },
     {
         title: "AI機能使用ガイド",
         file: "ai-guide-ja.md",
-        desc: "AIチャット、執筆支援、コード補完などのAI機能の詳細な使い方"
+        desc: "AIチャット、執筆支援、コード補完などのAI機能の詳細な使い方",
     },
     {
         title: "アイデアプロセッサ使用ガイド",
         file: "idea-processor-ja.md",
-        desc: "アイデアプロセッサの使用方法について"
+        desc: "アイデアプロセッサの使用方法について",
     },
     {
         title: "Pandoc導入ガイド",
         file: "pandoc-guide-ja.md",
-        desc: "縦書きEPUB/HTMLエクスポートに必要なPandocのインストールと設定"
+        desc: "縦書きEPUB/HTMLエクスポートに必要なPandocのインストールと設定",
     },
     {
         title: "FAQ (よくある質問)",
         file: "FAQ-ja.md",
-        desc: "トラブルシューティング、既知の不具合、その他情報"
+        desc: "トラブルシューティング、既知の不具合、その他情報",
     },
     {
         title: "Linux版について",
         file: "linux-support-ja.md",
-        desc: "Linux環境での動作状況やビルドに関する情報"
+        desc: "Linux環境での動作状況やビルドに関する情報",
     },
     {
         title: "注意事項",
         file: "notes-ja.md",
-        desc: "注意事項と使用素材、謝辞"
+        desc: "注意事項と使用素材、謝辞",
     },
     {
         title: "その他わりとどうでもいい情報",
-        file: "misc-ja.md",
-        desc: "Readmeに書くような情報ではないものや、開発の裏話的な何か"
-    }
+        file: "その他割とどうでもいい情報.md",
+        desc: "Readmeに書くような情報ではないものや、開発の裏話的な何か",
+    },
 ];
 ---
 
 <Layout title="Documents - MirrorShard 2">
-        <header>
+    <header>
         <div class="container nav-wrapper">
             <a href={baseUrl} class="logo" style="font-family: 'Orbitron';"
                 >[ Back to Home ]</a
@@ -84,50 +85,60 @@ const documents = [
                         >
                         <a
                             href={import.meta.env.BASE_URL.replace(/\/$/, "") +
-                            "/Markdown"}
+                                "/Markdown"}
                             class="feature_item">開発関連機能</a
-                                                                  >
+                        >
                         <a
                             href={import.meta.env.BASE_URL.replace(/\/$/, "") +
-                            "/IdeaProcessor"}
+                                "/IdeaProcessor"}
                             class="feature_item">アイデアプロセッサ</a
-                                                              >
+                        >
                     </div>
                 </div>
                 <a
                     href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest"
                     >Download</a
                 >
-                <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/docs/`}>Docs</a>
+                <a href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/docs/`}
+                    >Docs</a
+                >
                 <a href={`${baseUrl}/Blog/`}>Blog</a>
             </nav>
         </div>
     </header>
     <main class="container">
         <h1 class="page-title">Documentation</h1>
-        <p class="page-desc">MirrorShard 2 の公式マニュアル・ガイド一覧（GitHubへ移動します）</p>
+        <p class="page-desc">
+            MirrorShard 2 の公式マニュアル・ガイド一覧（GitHubへ移動します）
+        </p>
 
         <div class="docs-grid">
-            {documents.map(doc => (
-                <a href={`${githubDocsUrl}/${doc.file}`} target="_blank" rel="noopener noreferrer" class="doc-card">
-                    <div class="icon">📄</div>
-                    <div class="info">
-                        <h3>{doc.title}</h3>
-                        <p>{doc.desc}</p>
-                        <span class="filename">{doc.file}</span>
-                    </div>
-                    <div class="arrow">→</div>
-                </a>
-            ))}
+            {
+                documents.map((doc) => (
+                    <a
+                        href={`${githubDocsUrl}/${doc.file}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="doc-card"
+                    >
+                        <div class="icon">📄</div>
+                        <div class="info">
+                            <h3>{doc.title}</h3>
+                            <p>{doc.desc}</p>
+                            <span class="filename">{doc.file}</span>
+                        </div>
+                        <div class="arrow">→</div>
+                    </a>
+                ))
+            }
         </div>
-        
     </main>
 </Layout>
 
 <style>
     /* ページ全体のスタイル */
     .page-title {
-        font-family: 'Orbitron', sans-serif;
+        font-family: "Orbitron", sans-serif;
         text-align: center;
         margin-top: 60px;
         margin-bottom: 10px;
@@ -192,7 +203,7 @@ const documents = [
         line-height: 1.4;
         font-family: "M PLUS 1p";
     }
-    
+
     .filename {
         display: block;
         margin-top: 8px;
@@ -210,13 +221,12 @@ const documents = [
     .doc-card:hover .arrow {
         color: var(--accent-color);
     }
-
 </style>
 
 <script>
     document.addEventListener("astro:page-load", () => {
         const featurepulldown = document.querySelector(
-            "header #feature_pulldown"
+            "header #feature_pulldown",
         );
         const featuremenu = document.querySelector("header #feature_menu");
 

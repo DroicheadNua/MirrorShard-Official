@@ -1,63 +1,94 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import Layout from "../../layouts/Layout.astro";
 
-const blog = Object.values(import.meta.glob('./*.md', { eager: true }));
-const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+import type { MarkdownInstance } from "astro";
+interface Frontmatter {
+    title: string;
+    description?: string;
+}
+
+const blog = Object.values(
+    import.meta.glob<MarkdownInstance<Frontmatter>>("./*.md", { eager: true }),
+);
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <Layout title="Blog - MirrorShard 2">
-
     <header>
         <div class="container nav-wrapper">
-            <a href={baseUrl} class="logo" style="font-family: 'Orbitron';">[ Back to Home ]</Back></a>
+            <a href={baseUrl} class="logo" style="font-family: 'Orbitron';"
+                >[ Back to Home ]</a
+            >
             <nav>
-                <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/About"}>About</a>
-                <div id=headerfeature>
+                <a href={import.meta.env.BASE_URL.replace(/\/$/, "") + "/About"}
+                    >About</a
+                >
+                <div id="headerfeature">
                     <button id="feature_pulldown">Features</button>
                     <div id="feature_menu" class="hidden">
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/immersive"} class="feature_item">没入感と縦書き</a>
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/AI"} class="feature_item">多彩なAI機能</a>
-                        <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + "/Customize"} class="feature_item">自由な画面デザイン</a>
                         <a
                             href={import.meta.env.BASE_URL.replace(/\/$/, "") +
-                            "/Markdown"}
+                                "/immersive"}
+                            class="feature_item">没入感と縦書き</a
+                        >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/AI"}
+                            class="feature_item">多彩なAI機能</a
+                        >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/Customize"}
+                            class="feature_item">自由な画面デザイン</a
+                        >
+                        <a
+                            href={import.meta.env.BASE_URL.replace(/\/$/, "") +
+                                "/Markdown"}
                             class="feature_item">開発関連機能</a
-                                                                  >
+                        >
                         <a
                             href={import.meta.env.BASE_URL.replace(/\/$/, "") +
-                            "/IdeaProcessor"}
+                                "/IdeaProcessor"}
                             class="feature_item">アイデアプロセッサ</a
-                                                              >
+                        >
                     </div>
                 </div>
-                <a href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest">Download</a>
-                <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/docs/`}>Docs</a>
+                <a
+                    href="https://github.com/DroicheadNua/MirrorShard_2/releases/latest"
+                    >Download</a
+                >
+                <a href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/docs/`}
+                    >Docs</a
+                >
                 <a href={`${baseUrl}/Blog/`}>Blog</a>
             </nav>
         </div>
     </header>
-    
+
     <div class="container" style="padding-top: 50px;">
         <h1>Blog</h1>
         <p>MirrorShard 2 の開発雑記とかブログとかそんな感じの何か</p>
-        
+
         <div class="blog-list">
             <ul>
-                {blog.map(blog => (
-                    <li>
-                        <a href={blog.url} class="blog-link">
-                            <h3>{blog.frontmatter.title || 'No Title'}</h3>
-                            <p>{blog.frontmatter.description || ''}</p>
-                        </a>
-                    </li>
-                ))}
+                {
+                    blog.map((blog) => (
+                        <li>
+                            <a href={blog.url} class="blog-link">
+                                <h3>{blog.frontmatter.title || "No Title"}</h3>
+                                <p>{blog.frontmatter.description || ""}</p>
+                            </a>
+                        </li>
+                    ))
+                }
             </ul>
         </div>
     </div>
 </Layout>
 
 <style>
-    html, body {
+    html,
+    body {
         background-color: #0a0a0a !important;
     }
     .blog-list ul {
@@ -67,7 +98,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 20px;
     }
-    
+
     .blog-link {
         display: block;
         padding: 20px;
@@ -80,7 +111,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
         transition: all 0.2s;
         font-family: serif;
     }
-    
+
     .blog-link:hover {
         border-color: var(--accent-color);
         background: rgba(0, 255, 65, 0.1);
@@ -99,17 +130,17 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 </style>
 
 <script>
-    const featurepulldown = document.querySelector('header #feature_pulldown')!;
-    const featuremenu = document.querySelector('header #feature_menu')!;
-    featurepulldown.addEventListener('click', (e) => {
+    const featurepulldown = document.querySelector("header #feature_pulldown")!;
+    const featuremenu = document.querySelector("header #feature_menu")!;
+    featurepulldown.addEventListener("click", (e) => {
         e.stopPropagation();
-        featuremenu.classList.toggle('hidden');
+        featuremenu.classList.toggle("hidden");
     });
 
     // ウィンドウのどこかをクリックしたら、メニューを閉じる (UX向上のため)
-    window.addEventListener('click', () => {
-        if (!featuremenu.classList.contains('hidden')) {
-            featuremenu.classList.add('hidden');
+    window.addEventListener("click", () => {
+        if (!featuremenu.classList.contains("hidden")) {
+            featuremenu.classList.add("hidden");
         }
     });
 </script>
