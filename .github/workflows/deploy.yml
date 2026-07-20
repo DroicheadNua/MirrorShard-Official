@@ -16,6 +16,13 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
+
+      # Node.js 22を明示的にセットアップする手順を追加
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
       - name: Install, build, and upload your site
         uses: withastro/action@v3
         with:
